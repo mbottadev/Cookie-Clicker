@@ -25,4 +25,3 @@ cookie.addEventListener("click", function(){
 B2.addEventListener()
 
 }
-blah blah 
