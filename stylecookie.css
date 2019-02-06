@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(235,235,235);
+    font-family: montserrat;
+    margin: 20px;
+}
+
+.main{
+    max-width: 700px;
+    min-width: 100px;
+    margin: auto;  
+}
+
+.content{
+    text-align: center;
+    background-color: rgb(196, 64, 64);
+    border-radius: 3px;
+    padding: 15px;
+    margin-bottom: 15px;
+    
+    
+}
+
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    color:white;
+    width: 60%;
+    margin: 1% auto;
+}
+#cps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+    color:white;
+    margin: auto;
+    width: 40%;
+}
+.bonus{
+    text-align: center;
+    background-color: rosybrown;
+    border-radius: 3px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
