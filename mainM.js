@@ -41,14 +41,16 @@ window.onload = () => {
             },
         ], */
     }
-
-        
     
+    /* Fonction et Click pour Cookie */
+
     cookie.addEventListener("click", function(){
         Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
         score.innerHTML = "Le score est de \n " + Game.scoreJs 
         
     })
+
+    /* Fonction et Click pour Multiplicateur */
 
     function executeB1(){
         if (Game.onMultiplCl === true){
@@ -71,10 +73,9 @@ window.onload = () => {
         }
         score.innerHTML = "Le score est de \n " + Game.scoreJs
     })
-
-
     
-    
+    /* Fonction et Click pour Autoclick */
+
     B2.addEventListener( "click", function (){
         if (Game.possAutocl == true){
             if (Game.scoreJs>= Game.B2Js){
