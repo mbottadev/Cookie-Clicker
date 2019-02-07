@@ -14,6 +14,7 @@ window.onload = () => {
     let total = document.getElementById("total");
     let Game = {
         scoreJs: 0,
+        possAutocl:  true,
         // total: 0,
         /* store:[
             {
@@ -37,21 +38,24 @@ window.onload = () => {
     console.log(onAutoclick);    
     let B1Js = 1
     let multiplicateur = 1
-
-
+    
+    
     cookie.addEventListener("click", function(){
         Game.scoreJs = Game.scoreJs + multiplicateur 
         score.innerHTML = "Le score est de \n " + Game.scoreJs 
-
+        
     })
-
+    
     
     B2.addEventListener( "click", function (){
-        if (Game.scoreJs>= 200){
-            onAutoclick = true
-        }       
-        console.log(onAutoclick);
-        Game.scoreJs = Game.scoreJs - 200
+        if (Game.possAutocl == true){
+            if (Game.scoreJs>= 2){
+                onAutoclick = true
+                Game.possAutocl = false
+                Game.scoreJs = Game.scoreJs - 2
+            }       
+        }
+        console.log(Game);
         score.innerHTML = "Le score est de \n " + Game.scoreJs
     })
     console.log(Game.scoreJs)
