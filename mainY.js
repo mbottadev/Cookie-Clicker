@@ -40,7 +40,6 @@ window.onload = () => {
             },
         ], 
     }
-
     cookie.addEventListener("click", function(){
         if(Game.store[0].available == true) {
             Game.scoreJs = Game.scoreJs + (multiplicateur * 20);
