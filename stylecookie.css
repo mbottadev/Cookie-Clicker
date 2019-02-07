@@ -1,13 +1,13 @@
 body {
   background-color: #3b404e;
   justify-content: center;
-  padding: 20px;
+  padding: 15px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .main {
     display: grid;
-    width: 750px;
-    height: 650px;
+    width: 790px;
+    height: 500px;
     grid-template-columns: 170px 1fr 1fr;
     grid-template-rows: 80px 0.5fr 2.3fr 60px;
     grid-gap: 1rem;
@@ -22,8 +22,8 @@ body {
   
 .content{
     display: grid;
-    width: 750px;
-    height: 600px;
+    width: 790px;
+    height: 450px;
     grid-template-columns: 170px 1fr 1fr;
     grid-template-rows: 80px 0.5fr 2.3fr 60px;
     grid-gap: 0.5rem;
@@ -57,9 +57,9 @@ body {
     grid-area: total;
     grid-row: 5 / 5;
     grid-column: 2/4;
-    width: 50%;
-    height: 125%;
-    margin: auto;
+    width: 40%;
+    margin-left: 59.5%;
+    margin-top:1%;
   }
    
 .item {
@@ -70,7 +70,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: lighter;
   }
   
 .item.check{
@@ -80,9 +80,9 @@ body {
   }
 .item.bonus{
   justify-content: space-evenly;
-  padding: 4%;
   text-align: center;
-  line-height: 48px;
+  line-height: 115px;
+  height: 120%;
 }
   
 #checkB1{
@@ -116,22 +116,28 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-bottom:2%;
 }
 #B2{
   background: #E4B9A1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-bottom:2%;
 }
 #B3{
   background: #A1BBE4;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-bottom:2%;
+
 }
 #B4{
   background: #E4CEA1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-bottom:2%;
+
 }

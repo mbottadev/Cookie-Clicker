@@ -47,10 +47,6 @@ window.onload = () => {
 
     
 
-    B1.addEventListener("click", function(){
-
-    })
-
 
 
 
