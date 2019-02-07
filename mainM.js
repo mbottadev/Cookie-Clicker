@@ -16,7 +16,7 @@ window.onload = () => {
         scoreJs: 0,
         
         possAutocl:  true,
-        onAutoclick: false;
+        onAutoclick: false,
         B2Js: 200,
         
         onMultiplCl: true,
