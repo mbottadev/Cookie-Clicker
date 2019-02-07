@@ -49,10 +49,10 @@ window.onload = () => {
     
     B2.addEventListener( "click", function (){
         if (Game.possAutocl == true){
-            if (Game.scoreJs>= 2){
+            if (Game.scoreJs>= 200){
                 onAutoclick = true
                 Game.possAutocl = false
-                Game.scoreJs = Game.scoreJs - 2
+                Game.scoreJs = Game.scoreJs - 200
             }       
         }
         console.log(Game);
