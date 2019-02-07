@@ -14,14 +14,17 @@ let B4 = document.getElementById("B4");
 let total = document.getElementById("total");
 
 let scoreJs = 0
-let B2Js = 1 
+let B1Js = 1 
+let multiplicateur = 1
 
 cookie.addEventListener("click", function(){
     scoreJs = scoreJs + multiplicateur 
     score.innerHTML = "Le score est de \n " + scoreJs 
-
+    console.log(scoreJs);
 })
 
-B2.addEventListener()
+// B1.addEventListener("click", function(){
+
+// })
 
 }
