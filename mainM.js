@@ -16,6 +16,7 @@ window.onload = () => {
         scoreJs: 0,
         
         possAutocl:  true,
+        onAutoclick: false;
         B2Js: 200,
         
         onMultiplCl: true,
@@ -41,9 +42,7 @@ window.onload = () => {
         ], */
     }
 
-    let onAutoclick = false;
-    console.log(onAutoclick);    
-    
+        
     
     cookie.addEventListener("click", function(){
         Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
@@ -56,7 +55,7 @@ window.onload = () => {
             Game.multiplicateur ++
         }
     }
-    
+
     function pricePlusMulti(){
         if (Game.onMultiplCl === true){
             Game.B1Js = Game.B1Js * 2
@@ -79,7 +78,7 @@ window.onload = () => {
     B2.addEventListener( "click", function (){
         if (Game.possAutocl == true){
             if (Game.scoreJs>= Game.B2Js){
-                onAutoclick = true
+                Game.onAutoclick = true
                 Game.possAutocl = false
                 Game.scoreJs = Game.scoreJs - Game.B2Js
             }       
@@ -89,7 +88,7 @@ window.onload = () => {
    
 
     setInterval (function(){
-        if (onAutoclick == true){
+        if (Game.onAutoclick == true){
         Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
         score.innerHTML = "Le score est de " + Game.scoreJs;
         }    
