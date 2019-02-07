@@ -12,25 +12,56 @@ window.onload = () => {
     let B3 = document.getElementById("B3");
     let B4 = document.getElementById("B4");
     let total = document.getElementById("total");
+    let Game = {
+        scoreJs: 0,
+        // total: 0,
+        /* store:[
+            {
+                id: 0,
+                name: 'patate',
+                price: 10,
+                multiplicateur: 1.2,
+                times: 0
+            },
+            {
+                id:1,
+                name: 'autruche',
+                price: 10,
+                multiplicateur: 1.2,
+                times: 4,
+            },
+        ], */
+    }
 
-    let scoreJs = 0;
     let onAutoclick = false;
+    console.log(onAutoclick);    
     let B1Js = 1
-    
+    let multiplicateur = 1
 
+
+    cookie.addEventListener("click", function(){
+        Game.scoreJs = Game.scoreJs + multiplicateur 
+        score.innerHTML = "Le score est de \n " + Game.scoreJs 
+
+    })
+
+    
+    B2.addEventListener( "click", function (){
+        if (Game.scoreJs>= 200){
+            onAutoclick = true
+        }       
+        console.log(onAutoclick);
+        Game.scoreJs = Game.scoreJs - 200
+        score.innerHTML = "Le score est de \n " + Game.scoreJs
+    })
+    console.log(Game.scoreJs)
 
     setInterval (function(){
         if (onAutoclick == true){
-        scorejs = scoreJs + multiplicateur
-        score.innerHTML = "Le score est de " + scoreJs;
-        }    
+        Game.scoreJs = Game.scoreJs + multiplicateur
+        score.innerHTML = "Le score est de " + Game.scoreJs;
+    }    
     },1000);
-
-    B2.addEventListener( "click", function (){
-        if (score>= 200){
-
-        }       
-    }
 
 
 }
