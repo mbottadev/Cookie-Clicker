@@ -37,6 +37,7 @@ body {
     grid-area: score;
     background-color:rgb(149,218,229);
     background-image: linear-gradient(160deg, #6C52D9 0%, #9B8AE6 127%);
+    
   }
   
 .cps {
@@ -90,51 +91,51 @@ body {
   padding: 4%;
 }
   
-#checkb1{
+#checkB1{
     background: white;
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-#checkb2{
+#checkB2{
   background: #E4B9A1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-#checkb3{
+#checkB3{
   background: #A1BBE4;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-#checkb4{
+#checkB4{
   background: #E4CEA1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-#b1{
+#B1{
   background: white;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-#b2{
+#B2{
   background: #E4B9A1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-#b3{
+#B3{
   background: #A1BBE4;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-#b4{
+#B4{
   background: #E4CEA1;
   width: 50px;
   height: 50px;
