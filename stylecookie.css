@@ -35,8 +35,6 @@ body {
   }
 .score {
     grid-area: score;
-    background-color:rgb(149,218,229);
-    background-image: linear-gradient(160deg, #6C52D9 0%, #9B8AE6 127%);
     
   }
   
@@ -45,17 +43,14 @@ body {
     height: 70%;
     width: 50%;
     margin: auto;
-    background-image: linear-gradient(130deg, #6C52D9 0%, rgb(149,218,229) 85%, #3EDFD7 100%);
   }
   
 .click {
     grid-area: click;
-    background-image: linear-gradient(130deg, #6C52D9 0%, rgb(149,218,229) 85%, #3EDFD7 100%);
-  }
+ }
   
 .bonus {
     grid-area: bonus;
-    background-image: linear-gradient(130deg, #6C52D9 0%, rgb(149,218,229) 85%, #3EDFD7 100%);
   }
   
 .total {
@@ -65,14 +60,12 @@ body {
     width: 50%;
     height: 125%;
     margin: auto;
-    background-color: #6C52D9;
-    background-image: linear-gradient(160deg, #6C52D9 0%, #9B8AE6 127%);
-    }
+  }
    
 .item {
    
     color: #ffffff;
-    border: 4px solid #171717;
+    border: 2px solid #171717;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,15 +77,16 @@ body {
     display: grid;
     grid-column: auto;
     grid-area: check;
-    background-image: linear-gradient(203deg, #3EDFD7 0%, #29A49D 90%);
   }
 .item.bonus{
   justify-content: space-evenly;
   padding: 4%;
+  text-align: center;
+  line-height: 48px;
 }
   
 #checkB1{
-    background: white;
+    background: #b8afaf;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -118,7 +112,7 @@ body {
   border-radius: 50%;
 }
 #B1{
-  background: white;
+  background: #b8afaf;
   width: 50px;
   height: 50px;
   border-radius: 50%;
