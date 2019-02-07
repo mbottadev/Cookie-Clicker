@@ -14,7 +14,14 @@ window.onload = () => {
     let total = document.getElementById("total");
     let Game = {
         scoreJs: 0,
+        
         possAutocl:  true,
+        B2Js: 200,
+        
+        onMultiplCl: true,
+        incrementeur: 1,
+        multiplicateur: 1,
+        B1Js: 50,
         // total: 0,
         /* store:[
             {
@@ -36,35 +43,56 @@ window.onload = () => {
 
     let onAutoclick = false;
     console.log(onAutoclick);    
-    let B1Js = 1
-    let multiplicateur = 1
     
     
     cookie.addEventListener("click", function(){
-        Game.scoreJs = Game.scoreJs + multiplicateur 
+        Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
         score.innerHTML = "Le score est de \n " + Game.scoreJs 
         
     })
+
+    function executeB1(){
+        if (Game.onMultiplCl === true){
+            Game.multiplicateur ++
+        }
+    }
+    
+    function pricePlusMulti(){
+        if (Game.onMultiplCl === true){
+            Game.B1Js = Game.B1Js * 2
+        }
+    }
+
+    B1.addEventListener("click", function(){
+        if (Game.scoreJs >= Game.B1Js){
+            Game.onMultiplCl = true
+            Game.scoreJs = Game.scoreJs - Game.B1Js
+            executeB1();
+            pricePlusMulti();
+        }
+        score.innerHTML = "Le score est de \n " + Game.scoreJs
+    })
+
+
     
     
     B2.addEventListener( "click", function (){
         if (Game.possAutocl == true){
-            if (Game.scoreJs>= 200){
+            if (Game.scoreJs>= Game.B2Js){
                 onAutoclick = true
                 Game.possAutocl = false
-                Game.scoreJs = Game.scoreJs - 200
+                Game.scoreJs = Game.scoreJs - Game.B2Js
             }       
         }
-        console.log(Game);
         score.innerHTML = "Le score est de \n " + Game.scoreJs
     })
-    console.log(Game.scoreJs)
+   
 
     setInterval (function(){
         if (onAutoclick == true){
-        Game.scoreJs = Game.scoreJs + multiplicateur
+        Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
         score.innerHTML = "Le score est de " + Game.scoreJs;
-    }    
+        }    
     },1000);
 
 
