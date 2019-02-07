@@ -23,6 +23,7 @@ window.onload = () => {
         incrementeur: 1,
         multiplicateur: 1,
         B1Js: 50,
+        
         // total: 0,
         /* store:[
             {
@@ -70,9 +71,11 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs - Game.B1Js
             executeB1();
             pricePlusMulti();
+            
         }
         score.innerHTML = "Le score est de \n " + Game.scoreJs
     })
+
     
     /* Fonction et Click pour Autoclick */
 
