@@ -86,7 +86,7 @@ body {
 }
   
 #checkB1{
-    background: white;
+    background: #b8afaf;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -112,7 +112,7 @@ body {
   border-radius: 50%;
 }
 #B1{
-  background: white;
+  background: #b8afaf;
   width: 50px;
   height: 50px;
   border-radius: 50%;
