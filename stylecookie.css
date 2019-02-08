@@ -1,13 +1,26 @@
+*{
+  transition: 0.3s;
+}
+
 body {
   background-color: #3b404e;
   justify-content: center;
   padding: 15px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+#imgCookie 
+{
+  width: 100px;
+  height: 100px;
+}
+#cookieRdm
+{
+  position: absolute;
+}
 .main {
     display: grid;
     width: 790px;
-    height: 525px;
+    height: 520px;
     grid-template-columns: 170px 1fr 1fr;
     grid-template-rows: 80px 0.5fr 2.3fr 60px;
     grid-gap: 1rem;
@@ -33,33 +46,42 @@ body {
     "check cps cps"
     "check click click"
   }
-.score {
+  .score {
     grid-area: score;
-    border: 2px solid #171717;   
+    border: 2px solid #171717;
+    
+    
+    
   }
   
-.cps {
+  .cps {
     grid-area: cps;
     height: 70%;
     width: 50%;
     margin: auto;
-    border: 2px solid #171717;   
+    border: 2px solid #171717;
+    
+    
   }
   
-.click {
+  .click {
+    grid-area: click;
+  }
+  
+  .click {
     grid-area: click;
     margin: auto;
-}
- 
-.click:active {
+  }
+  
+  .click:active {
   transform: scale(1.2);
-}
-
-img{
+  }
+  
+  img{
   width:280px;
   height:280px;
-}
-
+  }
+  
 .bonus {
     grid-area: bonus;
   }
@@ -71,7 +93,9 @@ img{
     width: 40%;
     margin-left: 59.5%;
     margin-top:1%;
-    border: 2px solid #171717;   
+    border: 2px solid #171717;
+
+
   }
    
 .item {
@@ -88,42 +112,66 @@ img{
     display: grid;
     grid-column: auto;
     grid-area: check;
-    border: 2px solid #171717;   
+    border: 2px solid #171717;
+
 
   }
 .item.bonus{
   justify-content: space-evenly;
   text-align: center;
-  line-height: 115px;
+  line-height: 55px;
   height: 120%;
-  border: 2px solid #171717;   
+  border: 2px solid #171717;
+
+
 }
   
 #checkB1{
-    background: #b8afaf;
+    background: #3b404e;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3b404e;
+    border: 2px solid #171717;
+    font: bold;
+    
 }
 
 #checkB2{
-  background: #E4B9A1;
+  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  border: 2px solid #171717;
+  font: bold;
 }
 
 #checkB3{
-  background: #A1BBE4;
+  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3b404e;
+  border: 2px solid #171717;
+  font: bold;
 }
 #checkB4{
-  background: #E4CEA1;
+  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3b404e;
+  border: 2px solid #171717;
+  font: bold;
 }
 #B1{
   background: #b8afaf;
