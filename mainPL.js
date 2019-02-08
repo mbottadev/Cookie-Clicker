@@ -1,11 +1,11 @@
 window.onload = () => {
 
     /* Objet du Jeu et Variables */
-    
     let Game = {
         score: document.getElementById("score"),
         cps: document.getElementById("cps"),
         cookie: document.querySelector("#cookie"),
+        cookieRdm: document.getElementById("cookieRdm"),
         checks:[
             document.getElementById("checkB1"),
             document.getElementById("checkB2"),
@@ -18,9 +18,8 @@ window.onload = () => {
             document.getElementById("B3"),
             document.getElementById("B4"),
         ],
+
         total: document.getElementById("total"),
-
-
         scoreJs: 0,
         total: 0,
         
@@ -50,6 +49,16 @@ window.onload = () => {
                 available: false,
                 bonus: 5,
                 timerinverse: 30,
+            },
+            {
+                id:2,
+                name: 'cookieRdm',
+                multiplicateur: 50,
+                times: 0,
+                posLeft: 0,
+                posTop: 0,
+                nbrRdm: null,
+                available: false,
             },
         ],
     }
@@ -169,5 +178,45 @@ window.onload = () => {
             Game.store[0].available = false;
         }
     },1000);
-}
 
+    /* Fonction et Click pour GIGADICT */
+
+    Game.cookieRdm.addEventListener("click", function(){
+        if(Game.store[2].nbrRdm == 1) {
+            Game.scoreJs = Game.scoreJs + (Game.multiplicateur * Game.store[2].multiplicateur);
+        } else {
+            Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+        }
+        Game.score.innerHTML = "le score est de \n " + Game.scoreJs;
+        Game.cookieRdm.innerHTML = '';
+        Game.store[2].times = 0;
+    })
+
+    setInterval(function(){
+        Game.store[2].times++;
+        if(Game.store[2].times > 9)
+        {
+            Game.store[2].nbrRdm = getRandomInt(1,3);
+            if(Game.store[2].nbrRdm == 1) {
+                Game.cookieRdm.style.left = getRandomInt(0,1200)+"px";
+                Game.cookieRdm.style.top = getRandomInt(0,1000)+"px";
+                Game.cookieRdm.innerHTML = '<img id="imgCookie" src="cookie.png" alt="">';
+            } else {
+                Game.cookieRdm.style.left = getRandomInt(0,1200)+"px";
+                Game.cookieRdm.style.top = getRandomInt(0,1000)+"px";
+                Game.cookieRdm.innerHTML = '<img id="imgCookie" src="cookie2.png" alt="">';
+            }           
+            Game.store[2].times = 0; 
+            setTimeout(()=>{
+                Game.cookieRdm.innerHTML = '';
+            },1000)
+        }
+        
+    },1000)
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+}
