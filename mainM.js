@@ -33,7 +33,16 @@ window.onload = () => {
                 useTimes: 0,
                 available: false,
                 useAvailable: false
-            }
+            },
+            {
+                id:1,
+                name: 'boost',
+                timer: 0,
+                price: 500,
+                available: false,
+                bonus: 5,
+                timerinverse: 30,
+            },
         ],
     }
 
@@ -41,16 +50,21 @@ window.onload = () => {
 
     cookie.addEventListener("click", function(){
 
-        if(Game.store[0].available == true) {
-            Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * 20);
+        if(Game.store[0].available == true && Game.store[1].available === false) {
+            Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             score.innerHTML = "Le score est de \n " + Game.scoreJs 
-        } else {
+        }else if(Game.store[1].available === true && Game.store[0].available == false) {
+            Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
+            score.innerHTML = "Le score est de \n " + Game.scoreJs
+        }else if(Game.store[1].available === true && Game.store[0].available == true) {
+            Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus)
+        }else{
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
             score.innerHTML = "Le score est de \n " + Game.scoreJs 
         } 
     })
 
-    /* Fonction et Click pour Multiplicateur */
+    /* Fonction et Click pour MULTIPLICATEUR */
 
     function executeB1(){
         if (Game.onMultiplCl === true){
@@ -74,7 +88,7 @@ window.onload = () => {
         score.innerHTML = "Le score est de \n " + Game.scoreJs
     });
     
-    /* Fonction et Click pour Autoclick */
+    /* Fonction et Click pour AUTOCLICK */
 
     B2.addEventListener( "click", function (){
         if (Game.possAutocl == true){
@@ -95,7 +109,33 @@ window.onload = () => {
         }    
     },1000);
 
-    /* Fonction et Click pour GigaDict */
+    /* Fonction et Click pour BOOST */
+
+    B3.addEventListener("click",function(){
+        if (Game.scoreJs>Game.store[1].price){
+            Game.scoreJs = Game.scoreJs - Game.store[1].price
+            score.innerHTML = "Le score est de " + Game.scoreJs
+            Game.store[1].available = true
+        }
+    })   
+    
+    setInterval(function(){
+    if (Game.store[1].available == true) {
+        Game.store[1].timer++
+        B3.innerHTML = ":" + Game.store[1].timerinverse
+        Game.store[1].timerinverse-- 
+        console.log (Game.store[1].timer)
+    }
+    if(Game.store[1].timer > 29){
+        Game.store[1].timerinverse = 30
+        B3.innerHTML ="Boost"
+        Game.store[1].timer = 0
+        Game.store[1].available = false
+        console.log("desactiver")
+    }       
+    },1000)
+
+    /* Fonction et Click pour GIGADICT */
 
     B4.addEventListener("click", function(){
         if(Game.store[0].times > 179){    
