@@ -13,12 +13,13 @@ window.onload = () => {
     let B4 = document.getElementById("B4");
     let total = document.getElementById("total");
     let Game = {
-        scoreJs: 5000,
+        scoreJs: 0,
         total: 0,
         
         possAutocl:  true,
         onAutoclick: false,
         B2Js: 200,
+        autoIncr: -1,
         
         onMultiplCl: true,
         incrementeur: 1,
@@ -103,8 +104,10 @@ window.onload = () => {
         if (Game.possAutocl == true){
             if (Game.scoreJs>= Game.B2Js){
                 Game.onAutoclick = true
-                Game.possAutocl = false
+                Game.possAutocl = true
                 Game.scoreJs = Game.scoreJs - Game.B2Js
+                Game.autoIncr++
+                Game.B2Js = Game.B2Js*2
                 displayButton(B2, Game.B2Js, checkB2, 'lime') 
             }       
         }
@@ -114,7 +117,7 @@ window.onload = () => {
     
     setInterval (function(){
         if (Game.onAutoclick == true){
-            Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
+            Game.scoreJs = Game.scoreJs+ Game.autoIncr + Game.incrementeur * Game.multiplicateur
             score.innerHTML = "Le score est de " + Game.scoreJs;
         }    
     },1000);
