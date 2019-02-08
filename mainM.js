@@ -77,7 +77,7 @@ window.onload = () => {
 
     function pricePlusMulti(){
         if (Game.onMultiplCl === true){
-            Game.B1Js = Game.B1Js * 1.7
+            Game.B1Js = Math.ceil(Game.B1Js * 1.7)
         }
     };
 
@@ -141,10 +141,11 @@ window.onload = () => {
             
         }
         if(Game.store[1].timer > 29){
+            Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
             Game.store[1].timerinverse = 30
             checkB3.style.backgroundColor='#3b404e'
             Game.store[1].timer = 0
-            B3.innerHTML =  Game.store[1].price*1.4
+            B3.innerHTML =  Game.store[1].price
             Game.store[1].available = false
             console.log(B3)
           
