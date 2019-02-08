@@ -48,17 +48,14 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs + multiplicateur 
             score.innerHTML = "Le score est de \n " + Game.scoreJs 
         }
-    })
-    
-    
+    })    
     B4.addEventListener("click", function(){
         if(Game.store[0].times > 59){    
             Game.store[0].available = true;
             Game.store[0].times = 0;
             
         }
-    })
-    
+    })    
     setInterval (function(){
         Game.store[0].times++;
         total.innerHTML = "B4 désactiver : "+Game.store[0].times+"/60"
