@@ -90,30 +90,43 @@ body {
 }
   
 #checkB1{
-    background: #b8afaf;
+    background: #3b404e;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3b404e
+    
 }
 
 #checkB2{
-  background: #E4B9A1;
+  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
 #checkB3{
-  background: #A1BBE4;
+  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3b404e;
 }
 #checkB4{
-  background: #E4CEA1;
+  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3b404e;
 }
 #B1{
   background: #b8afaf;
