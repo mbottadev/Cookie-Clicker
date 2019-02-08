@@ -14,6 +14,7 @@ window.onload = () => {
     let total = document.getElementById("total");
     let Game = {
         scoreJs: 0,
+        total: 0,
         
         possAutocl:  true,
         onAutoclick: false,
@@ -24,31 +25,29 @@ window.onload = () => {
         multiplicateur: 1,
         B1Js: 50,
         
-        // total: 0,
-        /* store:[
+        store:[
             {
                 id: 0,
-                name: 'patate',
-                price: 10,
-                multiplicateur: 1.2,
-                times: 0
-            },
-            {
-                id:1,
-                name: 'autruche',
-                price: 10,
-                multiplicateur: 1.2,
-                times: 4,
-            },
-        ], */
+                multiplicateur: 20,
+                times: 0,
+                useTimes: 0,
+                available: false,
+                useAvailable: false
+            }
+        ],
     }
-    
+
     /* Fonction et Click pour Cookie */
 
     cookie.addEventListener("click", function(){
-        Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-        score.innerHTML = "Le score est de \n " + Game.scoreJs 
-        
+
+        if(Game.store[0].available == true) {
+            Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * 20);
+            score.innerHTML = "Le score est de \n " + Game.scoreJs 
+        } else {
+            Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
+            score.innerHTML = "Le score est de \n " + Game.scoreJs 
+        } 
     })
 
     /* Fonction et Click pour Multiplicateur */
@@ -63,19 +62,19 @@ window.onload = () => {
         if (Game.onMultiplCl === true){
             Game.B1Js = Game.B1Js * 2
         }
-    }
+    };
 
     B1.addEventListener("click", function(){
         if (Game.scoreJs >= Game.B1Js){
             Game.onMultiplCl = true
-            Game.scoreJs = Game.scoreJs - Game.B1Js
+            Game.scoreJs = Game.scoreJs - Game.B1Js;
+            console.log(Game)
             executeB1();
             pricePlusMulti();
-            
+            displayButton(B1, Game.B1Js, checkB1, 'lime') 
         }
-        score.innerHTML = "Le score est de \n " + Game.scoreJs
-    })
-
+        displayScore(score, Game.scoreJs)
+    });
     
     /* Fonction et Click pour Autoclick */
 
@@ -85,10 +84,11 @@ window.onload = () => {
                 Game.onAutoclick = true
                 Game.possAutocl = false
                 Game.scoreJs = Game.scoreJs - Game.B2Js
+                displayButton(B2, Game.B2Js, checkB2, 'lime') 
             }       
         }
         score.innerHTML = "Le score est de \n " + Game.scoreJs
-    })
+    });
    
 
     setInterval (function(){
@@ -98,5 +98,51 @@ window.onload = () => {
         }    
     },1000);
 
+    /* Fonction et Click pour GigaDict */
 
+    B4.addEventListener("click", function(){
+        if(Game.store[0].times > 179){    
+            Game.store[0].available = true;
+            Game.store[0].times = 0;
+            
+        }
+    });
+    
+    setInterval (function(){
+        Game.store[0].times++;
+        total.innerHTML = "B4 désactiver : "+Game.store[0].times+"/180s"
+        if(Game.store[0].times > 179) {
+            total.innerHTML = "B4 prêt"
+        }
+        if(Game.store[0].available == true) {
+            Game.store[0].times = 0;
+            Game.store[0].useTimes++;
+            total.innerHTML = "Temps restant : "+Game.store[0].useTimes +"/10s";
+        }
+        if(Game.store[0].useTimes > 9) {
+            Game.store[0].useTimes = 0;
+            Game.store[0].available = false;
+        }
+    },1000);
+
+    /* Changements couleurs checkB */
+
+    function displayButton(button, price, selector, color){
+        button.innerText = price
+        if(selector){
+            selector.style.backgroundColor=color;
+        }
+    }
+        
+    function displayScore(selector, score){
+        selector.innerHTML = "Le score est de \n " + score
+    }
+
+    function initalise(){
+        displayButton(B1, Game.B1Js)
+        displayButton(B2, Game.B2Js)
+    }
+
+    initalise()
 }
+
