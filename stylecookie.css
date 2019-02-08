@@ -97,7 +97,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #3b404e
+    color: #3b404e;
+    border: 2px solid #171717;
+    font: bold;
     
 }
 
@@ -106,6 +108,8 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  border: 2px solid #171717;
+  font: bold;
 }
 
 #checkB3{
@@ -117,6 +121,8 @@ body {
   justify-content: center;
   align-items: center;
   color: #3b404e;
+  border: 2px solid #171717;
+  font: bold;
 }
 #checkB4{
   background: #3b404e;
@@ -127,6 +133,8 @@ body {
   justify-content: center;
   align-items: center;
   color: #3b404e;
+  border: 2px solid #171717;
+  font: bold;
 }
 #B1{
   background: #b8afaf;

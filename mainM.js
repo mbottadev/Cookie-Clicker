@@ -13,7 +13,7 @@ window.onload = () => {
     let B4 = document.getElementById("B4");
     let total = document.getElementById("total");
     let Game = {
-        scoreJs: 0,
+        scoreJs: 5000,
         total: 0,
         
         possAutocl:  true,
@@ -40,7 +40,7 @@ window.onload = () => {
                 id:1,
                 name: 'boost',
                 timer: 0,
-                price: 5,
+                price: 500,
                 available: false,
                 bonus: 5,
                 timerinverse: 30,
@@ -77,7 +77,7 @@ window.onload = () => {
 
     function pricePlusMulti(){
         if (Game.onMultiplCl === true){
-            Game.B1Js = Game.B1Js * 2
+            Game.B1Js = Game.B1Js * 1.7
         }
     };
 
@@ -93,7 +93,8 @@ window.onload = () => {
             displayButton(B1, Game.B1Js, checkB1, 'lime')
         }
         displayScore(score, Game.scoreJs)
-        affichX(); 
+        affichX();
+        checkB1.style.fontWeight = 'bold'; 
     });
     
     /* Fonction et Click pour AUTOCLICK */
@@ -125,12 +126,9 @@ window.onload = () => {
         if (Game.scoreJs>Game.store[1].price){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
             score.innerHTML = "Le score est de " + Game.scoreJs
-            Game.store[1].available = true        
+            Game.store[1].available = true  
         }
     }) 
-    
-    
-    
     
     setInterval(function(){
         if (Game.store[1].available == true) {
@@ -139,16 +137,17 @@ window.onload = () => {
             checkB3.innerHTML = "x" + Game.store[1].bonus
             B3.innerHTML = ":" + Game.store[1].timerinverse
             Game.store[1].timerinverse-- 
-            console.log (Game.store[1].timer)
+            console.log (B3)
             
         }
         if(Game.store[1].timer > 29){
             Game.store[1].timerinverse = 30
             checkB3.style.backgroundColor='#3b404e'
-            B3.innerHTML ="500"
             Game.store[1].timer = 0
+            B3.innerHTML =  Game.store[1].price*1.4
             Game.store[1].available = false
-            console.log("desactiver")
+            console.log(B3)
+          
         }       
     },1000)
     
