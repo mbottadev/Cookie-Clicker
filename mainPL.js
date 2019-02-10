@@ -198,12 +198,12 @@ window.onload = () => {
         {
             Game.store[2].nbrRdm = getRandomInt(1,3);
             if(Game.store[2].nbrRdm == 1) {
-                Game.cookieRdm.style.left = getRandomInt(0,1200)+"px";
-                Game.cookieRdm.style.top = getRandomInt(0,1000)+"px";
+                Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
+                Game.cookieRdm.style.top = getRandomInt(0,600)+"px";
                 Game.cookieRdm.innerHTML = '<img id="imgCookie" src="cookie.png" alt="">';
             } else {
-                Game.cookieRdm.style.left = getRandomInt(0,1200)+"px";
-                Game.cookieRdm.style.top = getRandomInt(0,1000)+"px";
+                Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
+                Game.cookieRdm.style.top = getRandomInt(0,600)+"px";
                 Game.cookieRdm.innerHTML = '<img id="imgCookie" src="cookie2.png" alt="">';
             }           
             Game.store[2].times = 0; 
