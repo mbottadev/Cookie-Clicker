@@ -49,9 +49,6 @@ body {
   .score {
     grid-area: score;
     border: 2px solid #171717;
-    
-    
-    
   }
   
   .cps {
