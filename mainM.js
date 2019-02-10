@@ -19,7 +19,7 @@ window.onload = () => {
         possAutocl:  true,
         onAutoclick: false,
         B2Js: 200,
-        autoIncr: -1,
+        autoIncr: 0,
         
         onMultiplCl: true,
         incrementeur: 1,
@@ -109,6 +109,7 @@ window.onload = () => {
                 Game.autoIncr++
                 Game.B2Js = Game.B2Js*2
                 displayButton(B2, Game.B2Js, checkB2, 'lime') 
+                
             }       
         }
         score.innerHTML = "Le score est de \n " + Game.scoreJs
@@ -117,8 +118,10 @@ window.onload = () => {
     
     setInterval (function(){
         if (Game.onAutoclick == true){
-            Game.scoreJs = Game.scoreJs+ Game.autoIncr + Game.incrementeur * Game.multiplicateur
+            Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
             score.innerHTML = "Le score est de " + Game.scoreJs;
+            checkB2.innerHTML = Game.autoIncr
+            checkB2.style.fontWeight = 'bold';
         }    
     },1000);
     

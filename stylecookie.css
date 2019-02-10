@@ -143,7 +143,10 @@ body {
   height: 50px;
   border-radius: 50%;
   border: 2px solid #171717;
-  font: bold;
+  font: bold;display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3b404e;
 }
 
 #checkB3{
