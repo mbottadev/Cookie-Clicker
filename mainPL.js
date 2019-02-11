@@ -102,7 +102,7 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Score total : "+Game.scoreTotal
             setTimeout(()=>{
                 Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             },100);
@@ -110,14 +110,14 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
             Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Score total : "+Game.scoreTotal
             setTimeout(()=>{
                 Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
             },100);
         }else if(Game.store[1].available === true && Game.store[0].available == true) {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Score total : "+Game.scoreTotal
             setTimeout(()=>{
                 Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus);
             },100);
@@ -125,7 +125,7 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
             Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Score total : "+Game.scoreTotal
             setTimeout(()=>{
                 Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * Game.multiplicateur;
             },100);
