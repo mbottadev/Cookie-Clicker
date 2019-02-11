@@ -1,20 +1,26 @@
 window.onload = () => {
 
-    let score = document.getElementById("score");
-    let cps = document.getElementById("cps");
-    let cookie = document.querySelector("#cookie");
-    let checkB1 = document.getElementById("checkB1");
-    let checkB2 = document.getElementById("checkB2");
-    let checkB3 = document.getElementById("checkB3");
-    let checkB4 = document.getElementById("checkB4");
-    let B1 = document.getElementById("B1");
-    let B2 = document.getElementById("B2");
-    let B3 = document.getElementById("B3");
-    let B4 = document.getElementById("B4");
-    let total = document.getElementById("total");
+    /* Objet du Jeu et Variables */
     let Game = {
+        score: document.getElementById("score"),
+        cps: document.getElementById("cps"),
+        cookie: document.querySelector("#cookie"),
+        cookieRdm: document.getElementById("cookieRdm"),
+        checks:[
+            document.getElementById("checkB1"),
+            document.getElementById("checkB2"),
+            document.getElementById("checkB3"),
+            document.getElementById("checkB4"),
+        ],
+        buttons: [
+            document.getElementById("B1"),
+            document.getElementById("B2"),
+            document.getElementById("B3"),
+            document.getElementById("B4"),
+        ],
+
+        total: document.getElementById("total"),
         scoreJs: 0,
-        total: 0,
         
         possAutocl:  true,
         onAutoclick: false,
@@ -45,7 +51,16 @@ window.onload = () => {
                 available: false,
                 bonus: 5,
                 timerinverse: 30,
-                
+            },
+            {
+                id:2,
+                name: 'cookieRdm',
+                multiplicateur: 50,
+                times: 0,
+                posLeft: 0,
+                posTop: 0,
+                nbrRdm: null,
+                available: false,
             },
         ],
     }
@@ -78,29 +93,28 @@ window.onload = () => {
 
     function pricePlusMulti(){
         if (Game.onMultiplCl === true){
-            Game.B1Js = Math.ceil(Game.B1Js * 1.7)
+            Game.B1Js = Math.ceil(Game.B1Js * 1.7);
         }
     };
 
-    
-    B1.addEventListener("click", function(){
+    Game.buttons[0].addEventListener("click", function(){
         if (Game.scoreJs >= Game.B1Js){
-            Game.onMultiplCl = true
-            Game.scoreJs = Game.scoreJs - Game.B1Js;
+            Game.onMultiplCl = true;
+            Game.scoreJs = Game.scoreJs - Game.B1Js
             Game.xVisu = true;
             Game.x++;
             executeB1();
             pricePlusMulti();
-            displayButton(B1, Game.B1Js, checkB1, 'lime')
+            displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], 'lime');
         }
-        displayScore(score, Game.scoreJs)
+        displayScore(Game.score, Game.scoreJs)
         affichX();
-        checkB1.style.fontWeight = 'bold'; 
+        Game.checks[0].style.fontWeight = 'bold';
     });
     
     /* Fonction et Click pour AUTOCLICK */
 
-    B2.addEventListener( "click", function (){
+    Game.buttons[1].addEventListener( "click", function (){
         if (Game.possAutocl == true){
             if (Game.scoreJs>= Game.B2Js){
                 Game.onAutoclick = true
@@ -108,95 +122,127 @@ window.onload = () => {
                 Game.scoreJs = Game.scoreJs - Game.B2Js
                 Game.autoIncr++
                 Game.B2Js = Game.B2Js*2
-                displayButton(B2, Game.B2Js, checkB2, 'lime') 
-                
+                displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
             }       
         }
-        score.innerHTML = "Le score est de \n " + Game.scoreJs
+        Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
     });
    
-    
+
     setInterval (function(){
         if (Game.onAutoclick == true){
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
-            score.innerHTML = "Le score est de " + Game.scoreJs;
-            checkB2.innerHTML = Game.autoIncr
-            checkB2.style.fontWeight = 'bold';
+            Game.score.innerHTML = "Le score est de " + Game.scoreJs;
+            Game.checks[1].innerHTML = Game.autoIncr
+            Game.checks[1].style.fontWeight = 'bold';
         }    
     },1000);
-    
+
     /* Fonction et Click pour BOOST */
-    
-    B3.innerHTML ="500"
-    B3.addEventListener("click",function(){
+
+    Game.buttons[2].innerHTML ="500"
+    Game.buttons[2].addEventListener("click",function(){
         if (Game.scoreJs>Game.store[1].price){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
-            score.innerHTML = "Le score est de " + Game.scoreJs
-            Game.store[1].available = true  
+            Game.score.innerHTML = "Le score est de " + Game.scoreJs
+            Game.store[1].available = true
         }
-    }) 
+    })   
     
     setInterval(function(){
-        if (Game.store[1].available == true) {
-            Game.store[1].timer++
-            checkB3.style.backgroundColor='lime'
-            checkB3.innerHTML = "x" + Game.store[1].bonus
-            B3.innerHTML = ":" + Game.store[1].timerinverse
-            Game.store[1].timerinverse-- 
-            console.log (B3)
-            
-        }
-        if(Game.store[1].timer > 29){
-            Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
-            Game.store[1].timerinverse = 30
-            checkB3.style.backgroundColor='#3b404e'
-            Game.store[1].timer = 0
-            B3.innerHTML =  Game.store[1].price
-            Game.store[1].available = false
-            console.log(B3)
-          
-        }       
+    if (Game.store[1].available == true) {
+        Game.store[1].timer++
+        Game.checks[2].style.backgroundColor='lime'
+        Game.checks[2].innerHTML = "x" + Game.store[1].bonus
+        Game.buttons[2].innerHTML = ":" + Game.store[1].timerinverse
+        Game.store[1].timerinverse-- 
+        console.log (Game.store[1].timer);
+    }
+    if(Game.store[1].timer > 29){
+        Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
+        Game.store[1].timerinverse = 30
+        Game.checks[2].style.backgroundColor='#3b404e'
+        Game.store[1].timer = 0
+        Game.buttons[2].innerHTML =  Game.store[1].price
+        Game.store[1].available = false
+        console.log(Game.buttons[2]);
+    }       
     },1000)
-    
+
     /* Fonction et Click pour GIGADICT */
-    
-    B4.innerHTML ="FREE"
-    B4.addEventListener("click", function(){
+
+    Game.buttons[3].innerHTML ="FREE"
+    Game.buttons[3].addEventListener("click", function(){
         if(Game.store[0].times > 179){    
             Game.store[0].available = true;
-            Game.store[0].times = 0;
-            
-            
-            
+            Game.store[0].times = 0;  
         }
     });
     
     setInterval (function(){
         Game.store[0].times++;
-        total.innerHTML = "B4 désactiver : "+Game.store[0].times+"/180s"
+        Game.total.innerHTML = "B4 désactiver : "+Game.store[0].times+"/180s"
         if(Game.store[0].times > 179) {
-            total.innerHTML = "B4 prêt"
-            
+            Game.total.innerHTML = "B4 prêt"
         }
         if(Game.store[0].available == true) {
             Game.store[0].times = 0;
             Game.store[0].useTimes++;
-            total.innerHTML = "Temps restant : "+Game.store[0].useTimes +"/10s";
-            checkB4.style.backgroundColor='lime'
-            checkB4.innerHTML = "x" + Game.store[0].multiplicateur
-            
+            Game.total.innerHTML = "Temps restant : "+Game.store[0].useTimes +"/10s";
+            Game.checks[3].style.backgroundColor='lime'
+            Game.checks[3].innerHTML = "x" + Game.store[0].multiplicateur
         }
         if(Game.store[0].useTimes > 9) {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
-            checkB4.style.backgroundColor='#3b404e'
-            B4.innerHTML ="FREE"
+            Game.checks[3].style.backgroundColor='#3b404e'
+            Game.buttons[3].innerHTML ="FREE"
         }
     },1000);
-    
-    /* Changements couleurs checkB */
 
-    function displayButton(button, price, selector, color){
+    /* Fonction et Click pour RANDOM COOKIE */
+
+    Game.cookieRdm.addEventListener("click", function(){
+        if(Game.store[2].nbrRdm == 1) {
+            Game.scoreJs = Game.scoreJs + (Game.multiplicateur * Game.store[2].multiplicateur);
+        } else {
+            Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+        }
+        Game.score.innerHTML = "le score est de \n " + Game.scoreJs;
+        Game.cookieRdm.innerHTML = '';
+        Game.store[2].times = 0;
+    })
+
+    setInterval(function(){
+        Game.store[2].times++;
+        if(Game.store[2].times > 9){
+            Game.store[2].nbrRdm = getRandomInt(1,3);
+            if(Game.store[2].nbrRdm == 1) {
+                Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
+                Game.cookieRdm.style.top = getRandomInt(0,600)+"px";
+                Game.cookieRdm.innerHTML = '<img id="imgCookie" src="cookie.png" alt="">';
+            } else {
+                Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
+                Game.cookieRdm.style.top = getRandomInt(0,600)+"px";
+                Game.cookieRdm.innerHTML = '<img id="imgCookie" src="cookie2.png" alt="">';
+            }           
+            Game.store[2].times = 0; 
+            setTimeout(()=>{
+                Game.cookieRdm.innerHTML = '';
+            },1000)
+        }
+        
+    },1000)
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+      /* Changements couleurs checkB */
+
+      function displayButton(button, price, selector, color){
         button.innerText = price
         if(selector){
             selector.style.backgroundColor=color;
@@ -208,18 +254,17 @@ window.onload = () => {
     }
     
     function initalise(){
-        displayButton(B1, Game.B1Js)
-        displayButton(B2, Game.B2Js)
+        displayButton(Game.buttons[0], Game.B1Js)
+        displayButton(Game.buttons[1], Game.B2Js)
         // displayButton(B3, Game.store[1].price)
     }
-    
     initalise()
 
     /* Affichage des x dans les checkB */
 
     function affichX(){
         if (Game.xVisu === true){
-            checkB1.innerHTML = "x" + Game.x
+            Game.checks[0].innerHTML = "x" + Game.x
         }
         /* else if (Game.store[1].available === true){
             checkB3.innerHTML = "x" + Game.store[1].bonus
@@ -229,4 +274,3 @@ window.onload = () => {
         } */
     }
 }
-

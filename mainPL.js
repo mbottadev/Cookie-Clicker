@@ -264,7 +264,7 @@ window.onload = () => {
 
     function affichX(){
         if (Game.xVisu === true){
-            checkB1.innerHTML = "x" + Game.x
+            Game.checks[0].innerHTML = "x" + Game.x
         }
         /* else if (Game.store[1].available === true){
             checkB3.innerHTML = "x" + Game.store[1].bonus
