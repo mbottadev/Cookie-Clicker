@@ -1,13 +1,84 @@
 *{
   transition: 0.3s;
+  height: 100%;
 }
 
 body {
-  background-color: #3b404e;
+  background: linear-gradient(#000, #383154);
   justify-content: center;
   padding: 15px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: auto;
 }
+
+header {
+    text-align: center;
+    font-size: 5em;
+    margin: 20px 0 20px 0;
+}
+
+a {
+  text-decoration: none;
+}
+  
+header:nth-child(1) a {
+  color: rgb(12, 118, 231);
+  font-family: "Press Start 2P";
+  font-size: 0.8em;
+}
+  
+header:nth-child(1) a:hover {
+  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate;
+}
+  
+header a:hover {
+  color: #ffffff;
+}
+
+  /* /glow for webkit/ */
+  
+@-webkit-keyframes neon4 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    }
+    to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+}    
+  
+@-moz-keyframes neon4 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    }
+    to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+    
+}
+  
+@keyframes neon4 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+    }
+    to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+    
+}
+  
+  /* /REEEEEEEEEEESPONSIVE/ */
+  
+@media (max-width: 650px) {
+  #container {
+  width: 100%;
+  }
+  header {
+  font-size: 3.5em;
+  }
+}
+
 #imgCookie 
 {
   width: 100px;
@@ -34,57 +105,40 @@ body {
   pointer-events: none;
 }
 
-.main {
-    display: grid;
-    width: 790px;
-    height: 520px;
-    grid-template-columns: 170px 1fr 1fr;
-    grid-template-rows: 80px 0.5fr 2.3fr 60px;
-    grid-gap: 1rem;
-    margin: auto;
-    grid-template-areas:
-    "check score score"
-    "check cps cps"
-    "check click click"
-    "bonus bonus bonus"
-    "total total total"
-  }
-  
+.imageCps{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.centre {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .content{
-    display: grid;
     width: 790px;
-    height: 450px;
-    grid-template-columns: 170px 1fr 1fr;
-    grid-template-rows: 80px 0.5fr 2.3fr 60px;
-    grid-gap: 0.5rem;
     margin: auto;
-    grid-template-areas:
-    "check score score"
-    "check cps cps"
-    "check click click"
   }
   .score {
-    grid-area: score;
-    border: 2px solid #171717;
+    height: auto;
+    margin: auto;
+    width: 25%;
+    padding: 2%;
   }
   
   .cps {
-    grid-area: cps;
-    height: 70%;
+    height: 10%;
     width: 50%;
-    margin: auto;
-    border: 2px solid #171717;
-    
-    
+    margin: auto; 
+    padding: 2%;   
   }
   
   .click {
-    grid-area: click;
-  }
-  
-  .click {
-    grid-area: click;
-    margin: auto;
+    width: 50%;
   }
   
   .click:active {
@@ -96,52 +150,39 @@ body {
   height:280px;
   }
   
-.bonus {
-    grid-area: bonus;
-  }
-  
 .total {
-    grid-area: total;
-    grid-row: 5 / 5;
-    grid-column: 2/4;
-    width: 40%;
-    margin-left: 59.5%;
-    margin-top:1%;
-    border: 2px solid #171717;
-
-
+    height: auto; 
+    margin: auto;
+    width: 25%;
+    padding: 2%;
   }
    
 .item {
-   
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
     font-weight: lighter;
+    border-radius: 10px;
   }
   
 .item.check{
-    display: grid;
-    grid-column: auto;
-    grid-area: check;
-    border: 2px solid #171717;
-
-
+    height: 100px;
+    justify-content: space-around;
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
+    background-color: rgba(34, 141, 255, 0.315);
   }
 .item.bonus{
   justify-content: space-evenly;
   text-align: center;
   line-height: 55px;
-  height: 120%;
-  border: 2px solid #171717;
-
-
+  height: 100px;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
+  background-color: rgba(34, 141, 255, 0.315);
 }
-  
+
 #checkB1{
-    background: #3b404e;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -149,17 +190,17 @@ body {
     justify-content: center;
     align-items: center;
     color: #3b404e;
-    border: 2px solid #171717;
-    font: bold;
+    border: 2px solid #17171799;
+    font-weight: bold;
     
 }
 
 #checkB2{
-  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 2px solid #171717;
+  border: 2px solid #17171799;
+  font-weight: bold;
   font: bold;display: flex;
   justify-content: center;
   align-items: center;
@@ -167,7 +208,6 @@ body {
 }
 
 #checkB3{
-  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -175,11 +215,10 @@ body {
   justify-content: center;
   align-items: center;
   color: #3b404e;
-  border: 2px solid #171717;
-  font: bold;
+  border: 2px solid #17171799;
+  font-weight: bold;
 }
 #checkB4{
-  background: #3b404e;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -187,8 +226,8 @@ body {
   justify-content: center;
   align-items: center;
   color: #3b404e;
-  border: 2px solid #171717;
-  font: bold;
+  border: 2px solid #17171799;
+  font-weight: bold;
 }
 #B1{
   background: #b8afaf;

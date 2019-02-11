@@ -7,34 +7,40 @@
     <title>Cookie click</title>
     <link rel="stylesheet" type="text/css" href="stylecookie.css"> 
     <script type="text/javascript" src="mainPL.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 <body>
+    <header><a href="https://en.wikipedia.org/wiki/Green">
+        BERT/CLICKER
+        </a></header>
+    <div class="instructionsBonus"></div>
     <div class="instru" id="instructionsBonus1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptatum maiores beatae atque officia eaque amet dolores, fugit velit fuga. Nemo omnis modi maxime consequuntur cum repudiandae maiores eaque tenetur?</div>
     <div class="instru" id="instructionsBonus2">bonus 2</div>
     <div class="instru" id="instructionsBonus3">bonus 3</div>
     <div class="instru" id="instructionsBonus4">bonus 4</div>
     <div id="cookieRdm"></div>
-    <div class="main">
-        <div class="content">
+    <div class="content">
+        <div class="item bonus">
+            <div id="B1">0</div>Multiplicateur
+            <div id="B2">0</div>AutoClick
+            <div id="B3">0</div>Boost
+            <div id="B4">0</div>Giga
+        </div>
+        <div id="afficheScoreOnClick"></div>
+        <div class="imageCps">
+            <div class="item cps" id="cps"></div>
+           <div class="centre">
             <div class="item score" id="score"></div>
+            <img class="item click" id="cookie" src="svgbertrand.svg" />
+            <div class=" item total" id="total">TOTAL</div>
+           </div>
+        </div>
             <div class="item check">
                 <div id="checkB1"></div>
                 <div id="checkB2"></div>
                 <div id="checkB3"></div>
                 <div id="checkB4"></div>
             </div>
-            <!-- <div class="afficheScoreOnClick"></div> -->
-            <div class="item cps" id="cps"></div>
-            <img class="item click" id="cookie" src="svgbertrand.svg" />
-        </div>
-                <div class="item bonus">
-                    <div id="B1">0</div>Multiplicateur
-                    <div id="B2">0</div>AutoClick
-                    <div id="B3">0</div>Boost
-                    <div id="B4">0</div>Giga
-                </div>
-                <div class="item total" id="total">TOTAL</div>
         </div> 
     </body>    
 </html>
