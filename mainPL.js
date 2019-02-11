@@ -21,7 +21,7 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 5000,
+        scoreJs: 0,
         scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
@@ -67,6 +67,33 @@ window.onload = () => {
         ],
     }
 
+    // Affiche les boutons accessible 
+
+    setInterval(function(){
+        if(Game.scoreJs >= Game.B2Js) {
+            Game.buttons[1].style.opacity = 1;
+        } else {
+            Game.buttons[1].style.opacity = 0.3;
+        }
+        if(Game.scoreJs >= Game.B1Js) {
+            Game.buttons[0].style.opacity = 1;
+        } else {
+            Game.buttons[0].style.opacity = 0.3;
+        }
+        if(Game.scoreJs >= Game.store[1].price || Game.store[1].available == true) {
+            Game.buttons[2].style.opacity = 1;
+        } else {
+            Game.buttons[2].style.opacity = 0.3;
+        }
+        if(Game.store[0].times > 179) {
+            Game.buttons[3].style.opacity = 1;
+        } else {
+            Game.buttons[3].style.opacity = 0.3;
+        }
+    },100)
+
+
+
     /* Fonction et Click pour Cookie */
    
     cookie.addEventListener("click", function(){
@@ -105,9 +132,13 @@ window.onload = () => {
         }        
     })
 
+    /* Cookie par sec */
 
-    
-
+    function affichCPS(){
+        Game.cookieParSec = Game.x * Game.autoIncr
+        Game.cps.innerHTML = Game.cookieParSec + " cookies / par s "
+    }
+    Game.cps.innerHTML =  "   cookies / par s "
 
     /* SetInterval pour Afficher le SCORE */
 
@@ -135,6 +166,7 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs - Game.B1Js
             Game.xVisu = true;
             Game.x++;
+            affichCPS()
             executeB1();
             pricePlusMulti();
             displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], 'lime');
@@ -154,6 +186,7 @@ window.onload = () => {
                 Game.scoreJs = Game.scoreJs - Game.B2Js
                 Game.autoIncr++
                 Game.B2Js = Game.B2Js*2
+                affichCPS()
                 displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
             }       
         }

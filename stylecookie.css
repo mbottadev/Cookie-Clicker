@@ -18,6 +18,18 @@ body {
   position: absolute;
 
 }
+
+#afficheScoreOnClick{
+  position: absolute;
+  margin: 0;
+  width: 50px;
+  height: 100px;
+  border: 1px solid white;
+  top: 200px;
+  left: 1050px;
+  text-align: right;
+}
+
 .main {
     display: grid;
     width: 790px;
