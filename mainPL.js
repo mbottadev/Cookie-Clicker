@@ -108,7 +108,7 @@ window.onload = () => {
             displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], 'lime');
         }
         displayScore(Game.score, Game.scoreJs)
-        affichX();
+        affichMultiplicateur();
         Game.checks[0].style.fontWeight = 'bold';
     });
     
@@ -262,15 +262,9 @@ window.onload = () => {
 
     /* Affichage des x dans les checkB */
 
-    function affichX(){
+    function affichMultiplicateur(){
         if (Game.xVisu === true){
             Game.checks[0].innerHTML = "x" + Game.x
         }
-        /* else if (Game.store[1].available === true){
-            checkB3.innerHTML = "x" + Game.store[1].bonus
-        }
-        else if (Game.store[0].available === true){
-            checkB4.innerHTML = "x" + Game.store[0].multiplicateur
-        } */
     }
 }
