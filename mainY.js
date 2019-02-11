@@ -19,7 +19,7 @@ window.onload = () => {
             document.getElementById("B4"),
         ],
         total: document.getElementById("total"),
-        scoreJs: 5000,
+        scoreJs: 40,
         scoreTotal: 0,        
         possAutocl:  true,
         onAutoclick: false,
@@ -55,6 +55,7 @@ window.onload = () => {
                 id:2,
                 name: 'cookieRdm',
                 multiplicateur: 50,
+                timePrice: 25,
                 times: 0,
                 posLeft: 0,
                 posTop: 0,
@@ -131,7 +132,7 @@ window.onload = () => {
                 Game.autoIncr++
                 Game.B2Js = Game.B2Js*2
                 displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
-            }       
+            }
         }
         Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
     });
@@ -215,17 +216,34 @@ window.onload = () => {
     Game.cookieRdm.addEventListener("click", function(){
         if(Game.store[2].nbrRdm == 1) {
             Game.scoreJs = Game.scoreJs + (Game.multiplicateur * Game.store[2].multiplicateur);
+            if(Game.store[2].timePrice > 180) {
+                Game.store[2].timePrice = 180;
+            } else {
+                Game.store[2].timePrice += 3;
+            }
+            
         } else {
-            Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+            if(Game.scoreJs < (Game.multiplicateur * Game.store[2].multiplicateur)){
+                Game.scoreJs = 1
+            } else {
+                Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+            }
+            if(Game.store[2].timePrice < 10) {
+                Game.store[2].timePrice = 10;
+            } else {
+                Game.store[2].timePrice -= 3;
+            }
         }
+        
         Game.score.innerHTML = "le score est de \n " + Game.scoreJs;
         Game.cookieRdm.innerHTML = '';
         Game.store[2].times = 0;
     })
 
     setInterval(function(){
+        console.log(Game.store[2].timePrice)
         Game.store[2].times++;
-        if(Game.store[2].times > 9){
+        if(Game.store[2].times > Game.store[2].timePrice){
             Game.store[2].nbrRdm = getRandomInt(1,3);
             if(Game.store[2].nbrRdm == 1) {
                 Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
