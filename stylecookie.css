@@ -95,13 +95,15 @@ header a:hover {
   margin: 0;
   width: 50px;
   height: 100px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   text-align: right;
   animation-delay: 0s;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-name: chiffre;
   animation-timing-function: ease-out;
   color: white;
+  font-weight: bold;
+  font-size: 2em;
   pointer-events: none;
 }
 
@@ -272,6 +274,6 @@ header a:hover {
   /* 40%  { top: 200px; left: 1300px ;opacity: 1; }
   70%  { top: 140px ; left: 1400px ;opacity: 1; }
   95%  { top: 135px ; left: 1500px ;opacity: 1; } */
-  100% { transform:  translateY(-25px) translateX(25px); opacity: 0; }
+  100% { transform:  translateY(-100px) translateX(125px); opacity: 0; }
 }
 

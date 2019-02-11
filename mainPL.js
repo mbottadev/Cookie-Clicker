@@ -140,7 +140,7 @@ window.onload = () => {
         document.getElementsByTagName('body')[0].appendChild(div);
         setTimeout(()=>{
             document.getElementById(times).remove()
-        }, 2900)
+        }, 900)
     }
     /* Cookie par sec */
 
