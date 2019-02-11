@@ -101,26 +101,26 @@ window.onload = () => {
     cookie.addEventListener("click", function(e){
         if(Game.store[0].available == true && Game.store[1].available === false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
+            Game.score.innerHTML = Game.scoreJs + " Berts"
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur))) 
         }else if(Game.store[1].available === true && Game.store[0].available == false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
+            Game.score.innerHTML = Game.scoreJs + " Berts"
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus)))
         }else if(Game.store[1].available === true && Game.store[0].available == true){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus))) 
         }else{
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
+            Game.score.innerHTML = Game.scoreJs + " Berts" 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
-            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
             afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
         }    
     })
@@ -146,14 +146,14 @@ window.onload = () => {
 
     function affichCPS(){
         Game.cookieParSec = Game.x * Game.autoIncr
-        Game.cps.innerHTML = Game.cookieParSec + " cookies / par s "
+        Game.cps.innerHTML = Game.cookieParSec + " Bert / par S "
     }
-    Game.cps.innerHTML =  "   cookies / par s "
+    Game.cps.innerHTML =  "   Bert / par S "
 
     /* SetInterval pour Afficher le SCORE */
 
     setInterval (function(){
-        Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
+        Game.score.innerHTML = Game.scoreJs + " Berts"
     },0100);    
 
     /* Fonction et Click pour MULTIPLICATEUR */
@@ -200,14 +200,14 @@ window.onload = () => {
                 displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
             }       
         }
-        Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
+        Game.score.innerHTML = Game.scoreJs + " Berts";
     });
    
 
     setInterval (function(){
         if (Game.onAutoclick == true){
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
-            Game.score.innerHTML = "Le score est de " + Game.scoreJs;
+            Game.score.innerHTML = Game.scoreJs + " Berts";
             Game.checks[1].innerHTML = Game.autoIncr
             Game.checks[1].style.fontWeight = 'bold';
         }    
@@ -219,7 +219,7 @@ window.onload = () => {
     Game.buttons[2].addEventListener("click",function(){
         if (Game.scoreJs>Game.store[1].price){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
-            Game.score.innerHTML = "Le score est de " + Game.scoreJs
+            Game.score.innerHTML = Game.scoreJs + " Berts"
             Game.store[1].available = true
         }
     })   
@@ -294,7 +294,7 @@ window.onload = () => {
             }
         }
         
-        Game.score.innerHTML = "le score est de \n " + Game.scoreJs;
+        Game.score.innerHTML = Game.scoreJs + " Berts";
         Game.cookieRdm.innerHTML = '';
         Game.store[2].times = 0;
     })
@@ -336,7 +336,7 @@ window.onload = () => {
     }
     
     function displayScore(selector, score){
-        selector.innerHTML = "Le score est de \n " + score
+        selector.innerHTML = score + " Berts"
     }
     
     function initalise(){
