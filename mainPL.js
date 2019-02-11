@@ -7,6 +7,10 @@ window.onload = () => {
         cps: document.getElementById("cps"),
         cookie: document.querySelector("#cookie"),
         cookieRdm: document.getElementById("cookieRdm"),
+        instruBonus1: document.getElementById("instructionsBonus1"),
+        instruBonus2: document.getElementById("instructionsBonus2"),
+        instruBonus3: document.getElementById("instructionsBonus3"),
+        instruBonus4: document.getElementById("instructionsBonus4"),
         checks:[
             document.getElementById("checkB1"),
             document.getElementById("checkB2"),
@@ -343,4 +347,35 @@ window.onload = () => {
             Game.checks[0].innerHTML = "x" + Game.x
         }
     }
+
+    /* Hover bonus button */
+
+    Game.buttons[0].addEventListener("mouseenter", function(instruBonus1){
+        Game.instruBonus1.style.opacity = 1;     
+    })
+    Game.buttons[0].addEventListener("mouseleave", function(instruBonus1){
+        Game.instruBonus1.style.opacity = ""; 
+    })
+
+    Game.buttons[1].addEventListener("mouseenter", function(instruBonus2){
+        Game.instruBonus2.style.opacity = 1;     
+    })
+    Game.buttons[1].addEventListener("mouseleave", function(instruBonus2){
+        Game.instruBonus2.style.opacity = ""; 
+    })
+
+    Game.buttons[2].addEventListener("mouseenter", function(instruBonus3){
+        Game.instruBonus3.style.opacity = 1;     
+    })
+    Game.buttons[2].addEventListener("mouseleave", function(instruBonus3){
+        Game.instruBonus3.style.opacity = ""; 
+    })
+
+    Game.buttons[3].addEventListener("mouseenter", function(instruBonus4){
+        Game.instruBonus4.style.opacity = 1;     
+    })
+    Game.buttons[3].addEventListener("mouseleave", function(instruBonus4){
+        Game.instruBonus4.style.opacity = ""; 
+    })
+
 }
