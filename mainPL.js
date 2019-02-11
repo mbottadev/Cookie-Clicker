@@ -2,7 +2,7 @@ window.onload = () => {
 
     /* Objet du Jeu et Variables */
     let Game = {
-        afficheCookieOnClick: document.getElementById("afficheScoreOnClick"),
+        // afficheCookieOnClick: document.querySelector(".afficheScoreOnClick"),
         score: document.getElementById("score"),
         cps: document.getElementById("cps"),
         cookie: document.querySelector("#cookie"),
@@ -100,42 +100,48 @@ window.onload = () => {
 
     /* Fonction et Click pour Cookie */
    
-    cookie.addEventListener("click", function(){
+    cookie.addEventListener("click", function(e){
          
         if(Game.store[0].available == true && Game.store[1].available === false) {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             Game.total.innerHTML = "Score tot : "+Game.scoreTotal
-            setTimeout(()=>{
-                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            },100);
+            afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur))) 
         }else if(Game.store[1].available === true && Game.store[0].available == false) {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
             Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
             Game.total.innerHTML = "Score tot : "+Game.scoreTotal
-            setTimeout(()=>{
-                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            },100);
+            afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus)))
         }else if(Game.store[1].available === true && Game.store[0].available == true) {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
             Game.total.innerHTML = "Score tot : "+Game.scoreTotal
-            setTimeout(()=>{
-                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus);
-            },100);
+            afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus))) 
         }else {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
             Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
             Game.total.innerHTML = "Score tot : "+Game.scoreTotal
-            setTimeout(()=>{
-                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * Game.multiplicateur;
-            },100);
-        }        
+            afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
+        }    
     })
 
+    function afficheScoreOnClick(e, score){
+        const times = Date.now();
+        var div = document.createElement('div');
+        div.style.left = e.clientX + 'px';
+        div.style.top = e.clientY + 'px';
+        div.classList.add("afficheScoreOnClick");
+        div.innerText = '+' + score;
+        div.id = times;
+        console.log(div)
+        document.getElementsByTagName('body')[0].appendChild(div);
+        setTimeout(()=>{
+            document.getElementById(times).remove()
+        }, 2900)
+    }
     /* Cookie par sec */
 
     function affichCPS(){
