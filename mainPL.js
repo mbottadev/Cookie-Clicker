@@ -2,6 +2,7 @@ window.onload = () => {
 
     /* Objet du Jeu et Variables */
     let Game = {
+        afficheCookieOnClick: document.getElementById("afficheScoreOnClick"),
         score: document.getElementById("score"),
         cps: document.getElementById("cps"),
         cookie: document.querySelector("#cookie"),
@@ -20,8 +21,8 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 0,
-        
+        scoreJs: 5000,
+        scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
         B2Js: 200,
@@ -56,6 +57,7 @@ window.onload = () => {
                 id:2,
                 name: 'cookieRdm',
                 multiplicateur: 50,
+                timePrice: 25,
                 times: 0,
                 posLeft: 0,
                 posTop: 0,
@@ -66,22 +68,52 @@ window.onload = () => {
     }
 
     /* Fonction et Click pour Cookie */
-
+   
     cookie.addEventListener("click", function(){
-
+         
         if(Game.store[0].available == true && Game.store[1].available === false) {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            score.innerHTML = "Le score est de \n " + Game.scoreJs 
+            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
+            Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
+            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            setTimeout(()=>{
+                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
+            },100);
         }else if(Game.store[1].available === true && Game.store[0].available == false) {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            score.innerHTML = "Le score est de \n " + Game.scoreJs
+            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
+            Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
+            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            setTimeout(()=>{
+                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
+            },100);
         }else if(Game.store[1].available === true && Game.store[0].available == true) {
-            Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus)
-        }else{
+            Game.scoreJs = Game.scoreJs + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
+            Game.scoreTotal = Game.scoreTotal + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
+            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            setTimeout(()=>{
+                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus);
+            },100);
+        }else {
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-            score.innerHTML = "Le score est de \n " + Game.scoreJs 
-        } 
+            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs 
+            Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
+            Game.total.innerHTML = "Score tot : "+Game.scoreTotal
+            setTimeout(()=>{
+                Game.afficheCookieOnClick.innerHTML = "+" + Game.incrementeur * Game.multiplicateur;
+            },100);
+        }        
     })
+
+
+    
+
+
+    /* SetInterval pour Afficher le SCORE */
+
+    setInterval (function(){
+        Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
+    },0100);    
 
     /* Fonction et Click pour MULTIPLICATEUR */
 
@@ -156,7 +188,6 @@ window.onload = () => {
         Game.checks[2].innerHTML = "x" + Game.store[1].bonus
         Game.buttons[2].innerHTML = ":" + Game.store[1].timerinverse
         Game.store[1].timerinverse-- 
-        console.log (Game.store[1].timer);
     }
     if(Game.store[1].timer > 29){
         Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
@@ -165,7 +196,6 @@ window.onload = () => {
         Game.store[1].timer = 0
         Game.buttons[2].innerHTML =  Game.store[1].price
         Game.store[1].available = false
-        console.log(Game.buttons[2]);
     }       
     },1000)
 
@@ -181,14 +211,13 @@ window.onload = () => {
     
     setInterval (function(){
         Game.store[0].times++;
-        Game.total.innerHTML = "B4 désactiver : "+Game.store[0].times+"/180s"
+        console.log(Game.store[0].times)
         if(Game.store[0].times > 179) {
-            Game.total.innerHTML = "B4 prêt"
+            console.log("prêt")
         }
         if(Game.store[0].available == true) {
             Game.store[0].times = 0;
             Game.store[0].useTimes++;
-            Game.total.innerHTML = "Temps restant : "+Game.store[0].useTimes +"/10s";
             Game.checks[3].style.backgroundColor='lime'
             Game.checks[3].innerHTML = "x" + Game.store[0].multiplicateur
         }
@@ -196,7 +225,6 @@ window.onload = () => {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
             Game.checks[3].style.backgroundColor='#3b404e'
-            Game.buttons[3].innerHTML ="FREE"
         }
     },1000);
 
@@ -205,9 +233,25 @@ window.onload = () => {
     Game.cookieRdm.addEventListener("click", function(){
         if(Game.store[2].nbrRdm == 1) {
             Game.scoreJs = Game.scoreJs + (Game.multiplicateur * Game.store[2].multiplicateur);
+            if(Game.store[2].timePrice > 180) {
+                Game.store[2].timePrice = 180;
+            } else {
+                Game.store[2].timePrice += 3;
+            }
+            
         } else {
-            Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+            if(Game.scoreJs < (Game.multiplicateur * Game.store[2].multiplicateur)){
+                Game.scoreJs = 1
+            } else {
+                Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+            }
+            if(Game.store[2].timePrice < 10) {
+                Game.store[2].timePrice = 10;
+            } else {
+                Game.store[2].timePrice -= 3;
+            }
         }
+        
         Game.score.innerHTML = "le score est de \n " + Game.scoreJs;
         Game.cookieRdm.innerHTML = '';
         Game.store[2].times = 0;
@@ -215,7 +259,7 @@ window.onload = () => {
 
     setInterval(function(){
         Game.store[2].times++;
-        if(Game.store[2].times > 9){
+        if(Game.store[2].times > Game.store[2].timePrice){
             Game.store[2].nbrRdm = getRandomInt(1,3);
             if(Game.store[2].nbrRdm == 1) {
                 Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
@@ -256,7 +300,6 @@ window.onload = () => {
     function initalise(){
         displayButton(Game.buttons[0], Game.B1Js)
         displayButton(Game.buttons[1], Game.B2Js)
-        // displayButton(B3, Game.store[1].price)
     }
     initalise()
 
