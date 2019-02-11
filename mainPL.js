@@ -25,7 +25,7 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 0,
+        scoreJs: 500000,
         scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
