@@ -47,7 +47,7 @@ window.onload = () => {
                 timer: 0,
                 price: 500,
                 available: false,
-                bonus: 5,
+                bonus: 4,
                 timerinverse: 30,
             },
             {
@@ -87,9 +87,7 @@ window.onload = () => {
             Game.buttons[3].style.opacity = 0.3;
         }
     },100)
-
-
-
+    
     /* Fonction et Click pour Cookie */
 
     cookie.addEventListener("click", function(){
@@ -181,6 +179,7 @@ window.onload = () => {
 
         Game.buttons[2].addEventListener("click",function(){
             if (Game.scoreJs>Game.store[1].price){
+                Game.store[1].bonus++;
                 Game.scoreJs = Game.scoreJs - Game.store[1].price
                 Game.score.innerHTML = "Le score est de " + Game.scoreJs
                 Game.store[1].available = true
@@ -251,8 +250,7 @@ window.onload = () => {
                 Game.store[2].timePrice = 180;
             } else {
                 Game.store[2].timePrice += 3;
-            }
-            
+            }            
         } else {
             if(Game.scoreJs < (Game.multiplicateur * Game.store[2].multiplicateur)){
                 Game.scoreJs = 1
