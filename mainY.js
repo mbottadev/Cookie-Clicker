@@ -19,7 +19,7 @@ window.onload = () => {
             document.getElementById("B4"),
         ],
         total: document.getElementById("total"),
-        scoreJs: 5000,
+        scoreJs: 10005,
         scoreTotal: 0,        
         possAutocl:  true,
         onAutoclick: false,
@@ -32,7 +32,6 @@ window.onload = () => {
         B1Js: 50,
         x : 1,
         xVisu: false,
-        
         store:[
             {
                 id: 0,
@@ -55,6 +54,7 @@ window.onload = () => {
                 id:2,
                 name: 'cookieRdm',
                 multiplicateur: 50,
+                timePrice: 25,
                 times: 0,
                 posLeft: 0,
                 posTop: 0,
@@ -62,8 +62,33 @@ window.onload = () => {
                 available: false,
             },
         ],
-    }
-    
+    }  
+// Affiche les boutons accessible 
+
+    setInterval(function(){
+        if(Game.scoreJs >= Game.B2Js) {
+            Game.buttons[1].style.opacity = 1;
+        } else {
+            Game.buttons[1].style.opacity = 0.3;
+        }
+        if(Game.scoreJs >= Game.B1Js) {
+            Game.buttons[0].style.opacity = 1;
+        } else {
+            Game.buttons[0].style.opacity = 0.3;
+        }
+        if(Game.scoreJs >= Game.store[1].price || Game.store[1].available == true) {
+            Game.buttons[2].style.opacity = 1;
+        } else {
+            Game.buttons[2].style.opacity = 0.3;
+        }
+        if(Game.store[0].times > 179) {
+            Game.buttons[3].style.opacity = 1;
+        } else {
+            Game.buttons[3].style.opacity = 0.3;
+        }
+    },100)
+
+
 
     /* Fonction et Click pour Cookie */
 
@@ -104,6 +129,7 @@ window.onload = () => {
             Game.B1Js = Math.ceil(Game.B1Js * 1.7);
         }
     };
+    
 
     Game.buttons[0].addEventListener("click", function(){
         if (Game.scoreJs >= Game.B1Js){
@@ -120,21 +146,24 @@ window.onload = () => {
         Game.checks[0].style.fontWeight = 'bold';
     });
     
+    
     /* Fonction et Click pour AUTOCLICK */
 
-    Game.buttons[1].addEventListener( "click", function (){
-        if (Game.possAutocl == true){
-            if (Game.scoreJs>= Game.B2Js){
-                Game.onAutoclick = true
-                Game.possAutocl = true
-                Game.scoreJs = Game.scoreJs - Game.B2Js
-                Game.autoIncr++
-                Game.B2Js = Game.B2Js*2
-                displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
-            }       
-        }
-        Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
-    });
+        Game.buttons[1].addEventListener( "click", function (){
+            if (Game.possAutocl == true){
+                if (Game.scoreJs>= Game.B2Js){
+                    Game.onAutoclick = true
+                    Game.possAutocl = true
+                    Game.scoreJs = Game.scoreJs - Game.B2Js
+                    Game.autoIncr++
+                    Game.B2Js = Game.B2Js*2
+                    displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
+                }
+            }
+            Game.score.innerHTML = "Le score est de \n " + Game.scoreJs
+        });
+    
+    
    
 
     setInterval (function(){
@@ -149,13 +178,15 @@ window.onload = () => {
     /* Fonction et Click pour BOOST */
 
     Game.buttons[2].innerHTML ="500"
-    Game.buttons[2].addEventListener("click",function(){
-        if (Game.scoreJs>Game.store[1].price){
-            Game.scoreJs = Game.scoreJs - Game.store[1].price
-            Game.score.innerHTML = "Le score est de " + Game.scoreJs
-            Game.store[1].available = true
-        }
-    })   
+
+        Game.buttons[2].addEventListener("click",function(){
+            if (Game.scoreJs>Game.store[1].price){
+                Game.scoreJs = Game.scoreJs - Game.store[1].price
+                Game.score.innerHTML = "Le score est de " + Game.scoreJs
+                Game.store[1].available = true
+            }
+        }) 
+      
     
     setInterval(function(){
     if (Game.store[1].available == true) {
@@ -164,7 +195,6 @@ window.onload = () => {
         Game.checks[2].innerHTML = "x" + Game.store[1].bonus
         Game.buttons[2].innerHTML = ":" + Game.store[1].timerinverse
         Game.store[1].timerinverse-- 
-        console.log (Game.store[1].timer);
     }
     if(Game.store[1].timer > 29){
         Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
@@ -173,19 +203,21 @@ window.onload = () => {
         Game.store[1].timer = 0
         Game.buttons[2].innerHTML =  Game.store[1].price
         Game.store[1].available = false
-        console.log(Game.buttons[2]);
     }       
     },1000)
 
     /* Fonction et Click pour GIGADICT */
 
     Game.buttons[3].innerHTML ="FREE"
-    Game.buttons[3].addEventListener("click", function(){
-        if(Game.store[0].times > 179){    
-            Game.store[0].available = true;
-            Game.store[0].times = 0;  
-        }
-    });
+   
+        Game.buttons[3].addEventListener("click", function(){
+            if(Game.store[0].times > 179){    
+                Game.store[0].available = true;
+                Game.store[0].times = 0;  
+            }
+        });
+   
+    
     
     setInterval (function(){
         Game.store[0].times++;
@@ -215,9 +247,25 @@ window.onload = () => {
     Game.cookieRdm.addEventListener("click", function(){
         if(Game.store[2].nbrRdm == 1) {
             Game.scoreJs = Game.scoreJs + (Game.multiplicateur * Game.store[2].multiplicateur);
+            if(Game.store[2].timePrice > 180) {
+                Game.store[2].timePrice = 180;
+            } else {
+                Game.store[2].timePrice += 3;
+            }
+            
         } else {
-            Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+            if(Game.scoreJs < (Game.multiplicateur * Game.store[2].multiplicateur)){
+                Game.scoreJs = 1
+            } else {
+                Game.scoreJs = Game.scoreJs - (Game.multiplicateur * Game.store[2].multiplicateur);
+            }
+            if(Game.store[2].timePrice < 10) {
+                Game.store[2].timePrice = 10;
+            } else {
+                Game.store[2].timePrice -= 3;
+            }
         }
+        
         Game.score.innerHTML = "le score est de \n " + Game.scoreJs;
         Game.cookieRdm.innerHTML = '';
         Game.store[2].times = 0;
@@ -225,7 +273,7 @@ window.onload = () => {
 
     setInterval(function(){
         Game.store[2].times++;
-        if(Game.store[2].times > 9){
+        if(Game.store[2].times > Game.store[2].timePrice){
             Game.store[2].nbrRdm = getRandomInt(1,3);
             if(Game.store[2].nbrRdm == 1) {
                 Game.cookieRdm.style.left = getRandomInt(0,800)+"px";
