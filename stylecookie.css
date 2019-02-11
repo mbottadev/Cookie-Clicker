@@ -37,7 +37,7 @@ header a:hover {
   color: #ffffff;
 }
 
-  /* /glow for webkit/ */
+/* GLOW WEBKIT */
   
 @-webkit-keyframes neon4 {
   from {
@@ -68,7 +68,7 @@ header a:hover {
     
 }
   
-  /* /REEEEEEEEEEESPONSIVE/ */
+/* RESPONSIVE HOVER */
   
 @media (max-width: 650px) {
   #container {
@@ -79,23 +79,20 @@ header a:hover {
   }
 }
 
-#imgCookie 
-{
+#imgCookie {
   width: 100px;
   height: 100px;
 }
-#cookieRdm
-{
-  position: absolute;
 
+#cookieRdm {
+  position: absolute;
 }
 
-.afficheScoreOnClick{
+.afficheScoreOnClick {
   position: absolute;
   margin: 0;
   width: 50px;
-  height: 100px;
-  /* border: 1px solid white; */
+  height: 50px;
   text-align: right;
   animation-delay: 0s;
   animation-duration: 1s;
@@ -103,11 +100,11 @@ header a:hover {
   animation-timing-function: ease-out;
   color: white;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.5em;
   pointer-events: none;
 }
 
-.imageCps{
+.imageCps {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,61 +118,63 @@ header a:hover {
   justify-content: space-around;
 }
 
-.content{
-    width: 790px;
-    margin: auto;
-  }
-  .score {
-    height: auto;
-    margin: auto;
-    width: 25%;
-    padding: 2%;
-  }
-  
-  .cps {
-    height: 10%;
-    width: 50%;
-    margin: auto; 
-    padding: 2%;   
-  }
-  
-  .click {
-    width: 50%;
-  }
-  
-  .click:active {
-  transform: scale(1.2);
-  }
-  
-  img{
-  width:280px;
-  height:280px;
-  }
+.content {
+  width: 790px;
+  margin: auto;
+}
+
+.score {
+  height: auto;
+  margin: auto;
+  width: 25%;
+  padding: 2%;
+}
+
+.cps {
+  height: 10%;
+  width: 50%;
+  margin: auto; 
+  padding: 2%;   
+}
+
+.click {
+  width: 50%;
+}
+
+.click:active {
+transform: scale(1.2);
+}
+
+img {
+width:280px;
+height:280px;
+}
   
 .total {
-    height: auto; 
-    margin: auto;
-    width: 25%;
-    padding: 2%;
-  }
+  height: auto; 
+  margin: auto;
+  width: 25%;
+  padding: 2%;
+}
    
 .item {
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: lighter;
-    border-radius: 10px;
-  }
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: lighter;
+  border-radius: 10px;
+}
   
-.item.check{
-    height: 100px;
-    justify-content: space-around;
-    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
-    background-color: rgba(34, 141, 255, 0.315);
-  }
-.item.bonus{
+.item.check {
+  height: 100px;
+  justify-content: space-around;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
+  background-color: rgba(34, 141, 255, 0.315);
+}
+
+.item.bonus {
   justify-content: space-evenly;
   text-align: center;
   line-height: 55px;
@@ -184,20 +183,19 @@ header a:hover {
   background-color: rgba(34, 141, 255, 0.315);
 }
 
-#checkB1{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #3b404e;
-    border: 2px solid #17171799;
-    font-weight: bold;
-    
+#checkB1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3b404e;
+  border: 2px solid #17171799;
+  font-weight: bold;
 }
 
-#checkB2{
+#checkB2 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -209,7 +207,7 @@ header a:hover {
   color: #3b404e;
 }
 
-#checkB3{
+#checkB3 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -220,7 +218,8 @@ header a:hover {
   border: 2px solid #17171799;
   font-weight: bold;
 }
-#checkB4{
+
+#checkB4 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -231,37 +230,40 @@ header a:hover {
   border: 2px solid #17171799;
   font-weight: bold;
 }
-#B1{
+
+#B1 {
   background: #b8afaf;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-bottom:2%;
 }
-#B2{
+
+#B2 {
   background: #E4B9A1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-bottom:2%;
 }
-#B3{
+
+#B3 {
   background: #A1BBE4;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-bottom:2%;
-
 }
-#B4{
+
+#B4 {
   background: #E4CEA1;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-bottom:2%;
-
 }
-.instru{
+
+.instru {
   border: 2px solid #171717;
   width: 150px;
   height: 400px;
@@ -269,11 +271,9 @@ header a:hover {
   position: absolute;
   color: white;
 }
+
 @keyframes chiffre {
   0%   { transform:  translateY(0) translateX(0);opacity: 1; }
-  /* 40%  { top: 200px; left: 1300px ;opacity: 1; }
-  70%  { top: 140px ; left: 1400px ;opacity: 1; }
-  95%  { top: 135px ; left: 1500px ;opacity: 1; } */
-  100% { transform:  translateY(-100px) translateX(125px); opacity: 0; }
+  100% { transform:  translateY(-200px) translateX(50px); opacity: 0; }
 }
 
