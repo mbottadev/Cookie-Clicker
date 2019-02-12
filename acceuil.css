@@ -1,5 +1,4 @@
 *{
-    transition: 0.3s;
     height: 100%;
     font-family: "Press Start 2P";
   }
@@ -10,7 +9,12 @@
     padding: 15px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     height: auto;
+    max-width: 1300px;
+    min-width: 300px;
   }
+
+  /* ACCUEIL */
+
   #acceuil {
     display: flex;
     width: 20%;
@@ -35,17 +39,19 @@
     color: rgb(12, 118, 231);
     font-family: "Press Start 2P";
     font-size: 0.8em;
+    transition: 0.2s;
   }
     
   header:nth-child(1) a:hover {
-    -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-    -moz-animation: neon4 1.5s ease-in-out infinite alternate;
-    animation: neon4 1.5s ease-in-out infinite alternate;
+    -webkit-animation: neon4 1.2s ease-in-out infinite alternate;
+    -moz-animation: neon4 1.2s ease-in-out infinite alternate;
+    animation: neon4 1.2s ease-in-out infinite alternate;
   }
     
   header a:hover {
     color: #ffffff;
   }
+
   @-webkit-keyframes neon4 {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
@@ -84,11 +90,89 @@
     }
   }
 
+  /* DIV CONTENT */
+
   .content {
-      background-color: #53497e;
-      padding: 35px;
-      margin-top: 150px;
-      text-align: center;
-      border-radius: 120px;
+    box-shadow: 0 3px 5px 0 rgb(148, 111, 61),0 2px 10px 0 rgb(148, 111, 61);
+    background-color: rgba(34, 141, 255, 0.315);
+    padding: 35px;
+    text-align: center;
+    border-radius: 120px;
+    width: 50%;
+    margin: auto;
+
+  }
+
+  #devTitre{
+    font-size: 0.9em;
+    padding-top: 5px;
   }
  
+
+  /* GLOW FOR PLAY AND DEV */
+
+  h1{
+ 
+  }
+  
+  h1:nth-child(1) a {
+    color: #FF9900;
+    font-family: "Press Start 2P";
+    font-size: 1em;
+  }
+  
+  h1:nth-child(2) a {
+    color: #FF9900;
+    font-family: "Press Start 2P";
+    font-size: 1em;
+  }
+
+  h1:nth-child(1) a:hover {
+    -webkit-animation: neon5 1.2s ease-in-out infinite alternate;
+    -moz-animation: neon5 1.2s ease-in-out infinite alternate;
+    animation: neon5 1.2s ease-in-out infinite alternate;
+  }
+  
+  h1:nth-child(2) a:hover {
+    -webkit-animation: neon5 1.2s ease-in-out infinite alternate;
+    -moz-animation: neon5 1.2s ease-in-out infinite alternate;
+    animation: neon5 1.2s ease-in-out infinite alternate;
+  }
+
+  h1 a:hover {
+    color: #ffffff;
+  }
+  @-webkit-keyframes neon5 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(26, 187, 5), 0 0 70px rgb(26, 187, 5), 0 0 80px rgb(26, 187, 5), 0 0 100px rgb(26, 187, 5), 0 0 150px rgb(26, 187, 5);
+      }
+      to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(26, 187, 5), 0 0 35px rgb(26, 187, 5), 0 0 40px rgb(26, 187, 5), 0 0 50px rgb(26, 187, 5), 0 0 75px rgb(26, 187, 5);
+    }
+  }    
+    
+  @-moz-keyframes neon5 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(26, 187, 5), 0 0 70px rgb(26, 187, 5), 0 0 80px rgb(26, 187, 5), 0 0 100px rgb(26, 187, 5), 0 0 150px rgb(26, 187, 5);
+      }
+      to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(26, 187, 5), 0 0 35px rgb(26, 187, 5), 0 0 40px rgb(26, 187, 5), 0 0 50px rgb(26, 187, 5), 0 0 75px rgb(26, 187, 5);
+    }
+      
+  }
+  @keyframes neon5 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(26, 187, 5), 0 0 70px rgb(26, 187, 5), 0 0 80px rgb(26, 187, 5), 0 0 100px rgb(26, 187, 5), 0 0 150px rgb(26, 187, 5);
+      }
+      to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(26, 187, 5), 0 0 35px rgb(26, 187, 5), 0 0 40px rgb(26, 187, 5), 0 0 50px rgb(26, 187, 5), 0 0 75px rgb(26, 187, 5);
+    }
+  }
+  
+  /* HOVER */
+    
+  @media (max-width: 650px) {
+    h1 {
+    font-size: 3.5em;
+    }
+  }
