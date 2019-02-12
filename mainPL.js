@@ -148,7 +148,7 @@ window.onload = () => {
         Game.cookieParSec = Game.x * Game.autoIncr
         Game.cps.innerHTML = Game.cookieParSec + " Bert / S "
     }
-    Game.cps.innerHTML =  "   Bert / S "
+    Game.cps.innerHTML =  " Bert / S "
 
     /* SetInterval pour Afficher le SCORE */
 
