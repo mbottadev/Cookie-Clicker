@@ -179,7 +179,7 @@ window.onload = () => {
             affichCPS()
             executeB1();
             pricePlusMulti();
-            displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], 'lime');
+            displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], '#FF9900');
         }
         displayScore(Game.score, Game.scoreJs)
         affichMultiplicateur();
@@ -197,7 +197,7 @@ window.onload = () => {
                 Game.autoIncr++
                 Game.B2Js = Game.B2Js*2
                 affichCPS()
-                displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], 'lime') 
+                displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], '#FF9900') 
             }       
         }
         Game.score.innerHTML = Game.scoreJs + " Berts";
@@ -229,7 +229,7 @@ window.onload = () => {
     setInterval(function(){
         if (Game.store[1].available == true) {
             Game.store[1].timer++
-            Game.checks[2].style.backgroundColor='lime'
+            Game.checks[2].style.backgroundColor='#FF9900'
             Game.checks[2].innerHTML = "x" + Game.store[1].bonus
             Game.buttons[2].innerHTML = ":" + Game.store[1].timerinverse
             Game.store[1].timerinverse-- 
@@ -237,7 +237,7 @@ window.onload = () => {
         if(Game.store[1].timer > 29){
             Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
             Game.store[1].timerinverse = 30
-            Game.checks[2].style.backgroundColor='#3b404e'
+            Game.checks[2].style.backgroundColor=''
             Game.store[1].timer = 0
             Game.buttons[2].innerHTML =  Game.store[1].price
             Game.store[1].available = false
@@ -263,13 +263,13 @@ window.onload = () => {
         if(Game.store[0].available == true) {
             Game.store[0].times = 0;
             Game.store[0].useTimes++;
-            Game.checks[3].style.backgroundColor='lime'
+            Game.checks[3].style.backgroundColor='#FF9900'
             Game.checks[3].innerHTML = "x" + Game.store[0].multiplicateur
         }
         if(Game.store[0].useTimes > 9) {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
-            Game.checks[3].style.backgroundColor='#3b404e'
+            Game.checks[3].style.backgroundColor=''
         }
     },1000);
 

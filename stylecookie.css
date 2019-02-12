@@ -134,7 +134,7 @@ height:280px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #3b404e;
+  color: rgba(34, 141, 255, 0.315);
   border: 2px solid #17171799;
   font-weight: bold;
   font-size: 0.7em;
@@ -149,7 +149,7 @@ height:280px;
   font: bold;display: flex;
   justify-content: center;
   align-items: center;
-  color: #3b404e;
+  color: rgba(34, 141, 255, 0.315);
   font-size: 0.7em;
 }
 
@@ -160,10 +160,11 @@ height:280px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #3b404e;
+  color: rgba(34, 141, 255, 0.315);
   border: 2px solid #17171799;
   font-weight: bold;
   font-size: 0.7em;
+  font-family: 'Anton', sans-serif;
 }
 
 #checkB4 {
@@ -173,7 +174,7 @@ height:280px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #3b404e;
+  color: rgba(34, 141, 255, 0.315);
   border: 2px solid #17171799;
   font-weight: bold;
   font-size: 0.7em;
@@ -224,6 +225,7 @@ height:280px;
   color: white;
   font-size: 0.6em;
   padding: 5px;
+  pointer-events: none;
 }
 
 p {
