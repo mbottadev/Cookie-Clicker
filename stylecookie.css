@@ -74,12 +74,11 @@ body {
 .cps {
   height: auto;
   margin: auto;
-  width: 25%;
-  padding: 2%;
+  width: 35%;
 }
 
 .click {
-  width: 50%;
+  width: 35%;
 }
 
 .click:active {
@@ -94,8 +93,7 @@ height:280px;
 .total {
   height: auto; 
   margin: auto;
-  width: 25%;
-  padding: 2%;
+  width: 30%;
   font-size: 1em;
 }
    
