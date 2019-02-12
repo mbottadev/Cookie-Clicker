@@ -10,6 +10,7 @@ body {
   padding: 15px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: auto;
+  overflow: hidden;
 }
 
 
@@ -307,58 +308,58 @@ header a:hover {
 
 /* Couleur pour BONUS SURBRILLANCE */
 
-.coulorBonus {
+.colorBonus {
 }
 
-.coulorBonus:nth-child(1) {
+.colorBonus:nth-child(1) {
   color: #FF9900;
   font-family: "Press Start 2P";
   font-size: 0.6em;
 }
 
-.coulorBonus:nth-child(2) {
+.colorBonus:nth-child(2) {
   color: #FF9900;
   font-family: "Press Start 2P";
   font-size: 0.6em;
 }
 
-.coulorBonus:nth-child(3) {
+.colorBonus:nth-child(3) {
   color: #FF9900;
   font-family: "Press Start 2P";
   font-size: 0.6em;
 }
 
-.coulorBonus:nth-child(4) {
+.colorBonus:nth-child(4) {
   color: #FF9900;
   font-family: "Press Start 2P";
   font-size: 0.5em;
 }
 
-.coulorBonus:nth-child(1):hover {
+.colorBonus:nth-child(1):hover {
   -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
   -moz-animation: neon5 1.5s ease-in-out infinite alternate;
   animation: neon5 1.5s ease-in-out infinite alternate;
 }
 
-.coulorBonus:nth-child(2):hover {
+.colorBonus:nth-child(2):hover {
   -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
   -moz-animation: neon5 1.5s ease-in-out infinite alternate;
   animation: neon5 1.5s ease-in-out infinite alternate;
 }
 
-.coulorBonus:nth-child(3):hover {
+.colorBonus:nth-child(3):hover {
   -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
   -moz-animation: neon5 1.5s ease-in-out infinite alternate;
   animation: neon5 1.5s ease-in-out infinite alternate;
 }
 
-.coulorBonus:nth-child(4):hover {
+.colorBonus:nth-child(4):hover {
   -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
   -moz-animation: neon5 1.5s ease-in-out infinite alternate;
   animation: neon5 1.5s ease-in-out infinite alternate;
 }
 
-.coulorBonus:hover {
+.colorBonus:hover {
   color: #ffffff;
 }
 
@@ -399,7 +400,7 @@ header a:hover {
   #container {
   width: 100%;
   }
-  .coulorBonus {
+  .colorBonus {
   font-size: 1.5em;
   }
 }
