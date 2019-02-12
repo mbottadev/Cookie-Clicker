@@ -317,7 +317,7 @@ window.onload = () => {
             Game.store[2].times = 0; 
             setTimeout(()=>{
                 Game.cookieRdm.innerHTML = '';
-            },1000)
+            },1500)
         }
         
     },1000)
