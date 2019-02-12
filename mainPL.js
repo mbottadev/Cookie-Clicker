@@ -215,7 +215,7 @@ window.onload = () => {
             displayAutruche(Game.checks[1], Game.autoIncr)
             Game.checks[1].style.fontWeight = 'bold';
         }    
-    },1000);
+    },500);
 
     /* Fonction et Click pour BOOST */
 
@@ -246,7 +246,7 @@ window.onload = () => {
             displayAutruche(Game.buttons[2], Game.store[1].price)
             Game.store[1].available = false
         }       
-    },1000)
+    },500)
 
     /* Fonction et Click pour GIGADICT */
 
