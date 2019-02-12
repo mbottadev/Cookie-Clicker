@@ -12,8 +12,13 @@ body {
   height: auto;
   overflow: hidden;
 }
-
-
+#acceuil {
+  display: flex;
+  width: 20%;
+  height: 30%;
+  background-color: white;
+  margin: 0 auto;
+}
 #imgCookie {
   width: 100px;
   height: 100px;
@@ -74,7 +79,7 @@ body {
 .cps {
   height: auto;
   margin: auto;
-  width: 35%;
+  width: 40%;
 }
 
 .click {
@@ -410,4 +415,16 @@ header a:hover {
   .colorBonus {
   font-size: 1.5em;
   }
+}
+
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+}
+footer a{
+  color: black;
+}
+footer a:hover{
+  color: rgb(255, 0, 0);
 }
