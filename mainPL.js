@@ -25,7 +25,7 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 200000,
+        scoreJs: 2000000,
         scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
@@ -98,16 +98,16 @@ window.onload = () => {
 
     /* Fonction et CLICK pour COOKIE */
    
-    cookie.addEventListener("click", function(e){
+    cookie.addEventListener("click", function(e){        
         if(Game.store[0].available == true && Game.store[1].available === false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            displayAutruche(Game.score, Game.scoreJs + " Berts" );
+            displayAutruche(Game.score, Game.scoreJs, "aa");
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur))) 
         }else if(Game.store[1].available === true && Game.store[0].available == false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            displayAutruche(Game.score, Game.scoreJs + " Berts")
+            displayAutruche(Game.score, Game.scoreJs, "aa")
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus)))
@@ -118,7 +118,7 @@ window.onload = () => {
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus))) 
         }else{
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-            displayAutruche(Game.score, Game.scoreJs + " Berts") 
+            displayAutruche(Game.score, Game.scoreJs, "aa") 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
@@ -153,7 +153,7 @@ window.onload = () => {
     /* SetInterval pour Afficher le SCORE */
 
     setInterval (function(){
-        displayAutruche(Game.score, Game.scoreJs + " Berts")
+        displayAutruche(Game.score, Game.scoreJs , "aa")
     },100);    
 
     /* Fonction et Click pour MULTIPLICATEUR */
@@ -203,7 +203,7 @@ window.onload = () => {
                 colorText(Game.buttons[1], Game.B2Js, Game.checks[1], 'white');
             }       
         }
-        displayAutruche(Game.score, Game.scoreJs, " Berts");
+        displayAutruche(Game.score, Game.scoreJs , "aa");
         displayAutruche(Game.buttons[1], Game.B2Js);
     });
    
@@ -213,7 +213,7 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
             Game.scoreTotal = Game.scoreTotal + Game.autoIncr * Game.incrementeur * Game.multiplicateur
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
-            displayAutruche(Game.score, Game.scoreJs + " Berts");
+            displayAutruche(Game.score, Game.scoreJs , "aa");
             displayAutruche(Game.checks[1], Game.autoIncr)
             Game.checks[1].style.fontWeight = 'bold';
         }    
@@ -225,7 +225,7 @@ window.onload = () => {
     Game.buttons[2].addEventListener("click",function(){
         if (Game.scoreJs>Game.store[1].price && Game.store[1].available == false){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
-            displayAutruche(Game.score, Game.scoreJs + " Berts")
+            displayAutruche(Game.score, Game.scoreJs , "aa")
             Game.store[1].available = true
         }
     })   
@@ -271,7 +271,7 @@ window.onload = () => {
             Game.store[0].useTimes++;
             Game.checks[3].style.backgroundColor='#FF9900'
             Game.checks[2].style.color='white'
-            displayAutruche(Game.checks[3], "x", Game.store[0].multiplicateur)
+            displayAutruche(Game.checks[3], "x" + Game.store[0].multiplicateur)
         }
         if(Game.store[0].useTimes > 9) {
             Game.store[0].useTimes = 0;
@@ -304,7 +304,7 @@ window.onload = () => {
             }
         }
         
-        displayAutruche(Game.score, Game.scoreJs + " Berts");
+        displayAutruche(Game.score, Game.scoreJs , "aa");
         displayAutruche(Game.cookieRdm, '');
         Game.store[2].times = 0;
     })
@@ -346,7 +346,7 @@ window.onload = () => {
     }
     
     function displayScore(selector, score){
-        displayAutruche(selector, score + " Berts")
+        displayAutruche(selector, score)
     }
     
     function initalise(){
@@ -370,22 +370,24 @@ window.onload = () => {
             
         }
     }
-
-    function displayAutruche(selector, value){
-        if(!isNaN(value)){
-            selector.innerText = formatK(value);
-        }else{
+    function displayAutruche(selector, value, berts){
+        if(berts!=undefined && !isNaN(value)){
+            selector.innerText = formatK(value) + " Berts";
+        }else if(!isNaN(value)) {
+            selector.innerText = formatK(value)
+        }
+        else{
             selector.innerText = value
         }
     }
 
     function formatK(number){
-        if (number > 999){
-            return (number / 1000).toFixed(2) + 'K'
-        } 
-        else if (number > 999999){
+        if (number > 999999){
             return (number / 1000000).toFixed(3) + 'M'
         }
+        else if (number > 999){
+            return (number / 1000).toFixed(2) + 'K'
+        } 
         else { return number}
     }
 
