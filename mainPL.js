@@ -101,13 +101,13 @@ window.onload = () => {
     cookie.addEventListener("click", function(e){
         if(Game.store[0].available == true && Game.store[1].available === false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            displayAutruche(Game.score, Game.scoreJs, " Berts" );
+            displayAutruche(Game.score, Game.scoreJs + " Berts" );
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur))) 
         }else if(Game.store[1].available === true && Game.store[0].available == false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            displayAutruche(Game.score, Game.scoreJs, " Berts")
+            displayAutruche(Game.score, Game.scoreJs + " Berts")
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus)))
@@ -118,7 +118,7 @@ window.onload = () => {
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus))) 
         }else{
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-            displayAutruche(Game.score, Game.scoreJs, " Berts") 
+            displayAutruche(Game.score, Game.scoreJs + " Berts") 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
@@ -153,7 +153,7 @@ window.onload = () => {
     /* SetInterval pour Afficher le SCORE */
 
     setInterval (function(){
-        displayAutruche(Game.score, Game.scoreJs, " Berts")
+        displayAutruche(Game.score, Game.scoreJs + " Berts")
     },100);    
 
     /* Fonction et Click pour MULTIPLICATEUR */
@@ -202,7 +202,7 @@ window.onload = () => {
                 colorText(Game.buttons[1], Game.B2Js, Game.checks[1], 'white');
             }       
         }
-        displayAutruche(Game.score, Game.scoreJs, " Berts");
+        displayAutruche(Game.score, Game.scoreJs + " Berts");
     });
    
 
@@ -211,7 +211,7 @@ window.onload = () => {
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
             Game.scoreTotal = Game.scoreTotal + Game.autoIncr * Game.incrementeur * Game.multiplicateur
             displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
-            displayAutruche(Game.score, Game.scoreJs, " Berts");
+            displayAutruche(Game.score, Game.scoreJs + " Berts");
             displayAutruche(Game.checks[1], Game.autoIncr)
             Game.checks[1].style.fontWeight = 'bold';
         }    
@@ -221,9 +221,9 @@ window.onload = () => {
 
     displayAutruche(Game.buttons[2], "500")
     Game.buttons[2].addEventListener("click",function(){
-        if (Game.scoreJs>Game.store[1].price){
+        if (Game.scoreJs>Game.store[1].price && Game.store[1].available == false){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
-            displayAutruche(Game.score, Game.scoreJs, " Berts")
+            displayAutruche(Game.score, Game.scoreJs + " Berts")
             Game.store[1].available = true
         }
     })   
@@ -241,12 +241,12 @@ window.onload = () => {
             Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
             Game.store[1].timerinverse = 30
             Game.checks[2].style.backgroundColor=''
-            Game.checks[2].style.color=''
+            Game.checks[2].style.color='rgb(148, 111, 61)'
             Game.store[1].timer = 0
             displayAutruche(Game.buttons[2], Game.store[1].price)
             Game.store[1].available = false
         }       
-    },500)
+    },1000)
 
     /* Fonction et Click pour GIGADICT */
 
@@ -275,7 +275,7 @@ window.onload = () => {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
             Game.checks[3].style.backgroundColor=''
-            Game.checks[2].style.color=''
+            Game.checks[2].style.color='rgb(148, 111, 61)'
         }
     },1000);
 
@@ -302,7 +302,7 @@ window.onload = () => {
             }
         }
         
-        displayAutruche(Game.score, Game.scoreJs, " Berts");
+        displayAutruche(Game.score, Game.scoreJs + " Berts");
         displayAutruche(Game.cookieRdm, '');
         Game.store[2].times = 0;
     })
@@ -344,7 +344,7 @@ window.onload = () => {
     }
     
     function displayScore(selector, score){
-        displayAutruche(selector, score, " Berts")
+        displayAutruche(selector, score + " Berts")
     }
     
     function initalise(){
