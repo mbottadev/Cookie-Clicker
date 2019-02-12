@@ -20,13 +20,9 @@ body {
   overflow: hidden;
   min-width: 900px;
 }
-#acceuil {
-  display: flex;
-  width: 20%;
-  height: 30%;
-  background-color: white;
-  margin: 0 auto;
-}
+
+/* CONTENT MAIN */
+
 #imgCookie {
   width: 100px;
   height: 100px;
@@ -99,17 +95,17 @@ body {
 }
 
 img {
-width:280px;
-height:280px;
+  width:280px;
+  height:280px;
 }
-  
+
 .total {
   height: auto; 
   margin: auto;
   width: 40%;
   font-size: 1em;
 }
-   
+
 .item {
   color: #ffffff;
   display: flex;
@@ -119,7 +115,7 @@ height:280px;
   font-weight: lighter;
   border-radius: 10px;
 }
-  
+
 .item.check {
   height: 100px;
   justify-content: space-around;
@@ -138,9 +134,57 @@ height:280px;
   font-size: 0.7em;
 }
 
+/* BONUSES CIRCLES */
+
+#B1 {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #FF9900;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#B2 {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #FF9900;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#B3 {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #FF9900;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#B4 {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid #FF9900;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ACTIVATED BONUSES */
+
 #checkB1 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -153,8 +197,8 @@ height:280px;
 }
 
 #checkB2 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   font-weight: bold;
   font: bold;display: flex;
@@ -167,8 +211,8 @@ height:280px;
 }
 
 #checkB3 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -181,8 +225,8 @@ height:280px;
 }
 
 #checkB4 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -192,43 +236,10 @@ height:280px;
   border: 2px solid #FF9900 ;
   font-weight: bold;
   font-size: 0.9em;
+  text-align: center;
 }
 
-#B1 {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom:2%; 
-  border: 2px solid #FF9900;
-  font-size: 0.8em;
-}
-
-#B2 {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom:2%;
-  border: 2px solid #FF9900;
-  font-size: 0.8em;
-}
-
-#B3 {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom:2%;
-  border: 2px solid #FF9900;
-  font-size: 0.8em;
-}
-
-#B4 {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-bottom:2%;
-  border: 2px solid #FF9900;
-  font-size: 0.8em;
-}
+/* DIV EXPLAINING BONUSES */
 
 .instru {
   border: 2px solid #FF9900;
@@ -241,12 +252,15 @@ height:280px;
   padding: 5px;
   pointer-events: none;
 }
+
+/* RESPONSIVE DIV EXPLAINING BONUSES */
+
 @media screen and (max-width: 1200px) {
   .instru {
-      top: 80%;
-      width: 50%;
-      left: 25%;
-      height: auto;
+    top: 80%;
+    width: 50%;
+    left: 25%;
+    height: auto;
   }
 }
 
@@ -254,12 +268,14 @@ p {
   font-size: 1.1em;
 }
 
+/* KEYFRAMES "+1" ON CLICK */
+
 @keyframes chiffre {
   0%   { transform:  translateY(0) translateX(0);opacity: 1; }
   100% { transform:  translateY(-200px) translateX(50px); opacity: 0; }
 }
 
-/* Couleur pour HEADER et SURBRILLANCE */
+/* KEYFRAMES COLORS HEADER and NEON */
 
 header {
   text-align: center;
@@ -278,18 +294,18 @@ header:nth-child(1) a {
 }
   
 header:nth-child(1) a:hover {
-  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
-  animation: neon4 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
 }
   
 header a:hover {
   color: #ffffff;
 }
 
-/* GLOW WEBKIT */
-  
-@-webkit-keyframes neon4 {
+/* WEBKIT KEYFRAMES NEON HEADER */
+
+@-webkit-keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
     }
@@ -298,7 +314,7 @@ header a:hover {
   }
 }    
   
-@-moz-keyframes neon4 {
+@-moz-keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
     }
@@ -308,7 +324,7 @@ header a:hover {
     
 }
   
-@keyframes neon4 {
+@keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
     }
@@ -318,7 +334,7 @@ header a:hover {
     
 }
   
-/* HOVER */
+/* RESPONSIVE HEADER */
   
 @media (max-width: 650px) {
   header {
@@ -326,10 +342,7 @@ header a:hover {
   }
 }
 
-/* Couleur pour BONUS SURBRILLANCE */
-
-.colorBonus {
-}
+/* KEYFRAMES COLORS BONUSES PRICES and NEON */
 
 .colorBonus:nth-child(1) {
   color: #FF9900;
@@ -356,36 +369,36 @@ header a:hover {
 }
 
 .colorBonus:nth-child(1):hover {
-  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
-  animation: neon5 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
 .colorBonus:nth-child(2):hover {
-  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
-  animation: neon5 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
 .colorBonus:nth-child(3):hover {
-  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
-  animation: neon5 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
 .colorBonus:nth-child(4):hover {
-  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
-  animation: neon5 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate;
 }
 
 .colorBonus:hover {
   color: #ffffff;
 }
 
-/* GLOW WEBKIT */
+/* WEBKIT KEYFRAMES NEON HEADER */
   
-@-webkit-keyframes neon5 {
+@-webkit-keyframes neon2 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
   }
@@ -394,7 +407,7 @@ header a:hover {
   }
 }    
   
-@-moz-keyframes neon5 {
+@-moz-keyframes neon2 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
   }
@@ -404,7 +417,7 @@ header a:hover {
     
 }
   
-@keyframes neon5 {
+@keyframes neon2 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
   }
@@ -414,7 +427,7 @@ header a:hover {
     
 }
   
-/* HOVER */
+/* RESPONSIVE BONUSES PRICES */
   
 @media (max-width: 650px) {
   .colorBonus {
@@ -422,14 +435,21 @@ header a:hover {
   }
 }
 
+/* FOOTER CSS */
 
 footer {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
+
 footer a{
-  color: black;
+  color: rgb(12, 118, 231);
+  box-shadow: 0.5px 0.5px 0.5px 1px orange;
+  padding: 1%;
+  border-radius: 10px;
 }
+
 footer a:hover{
   color: rgb(255, 0, 0);
+  box-shadow: 1px 1px 1px 1px red;
 }

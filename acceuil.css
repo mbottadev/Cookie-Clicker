@@ -1,4 +1,4 @@
-*{
+  *{
     height: 100%;
     font-family: "Press Start 2P";
   }
@@ -13,7 +13,7 @@
     min-width: 300px;
   }
 
-  /* ACCUEIL */
+  /* DIV ACCUEIL */
 
   #acceuil {
     display: flex;
@@ -22,13 +22,31 @@
     background-color: white;
     margin: 0 auto;
   }
+  
+  /* DIV CONTENT */
 
-  /* Couleur pour HEADER et SURBRILLANCE */
+  .content {
+    box-shadow: 0 3px 5px 0 rgb(148, 111, 61),0 2px 10px 0 rgb(148, 111, 61);
+    background-color: rgba(34, 141, 255, 0.315);
+    padding: 35px;
+    text-align: center;
+    border-radius: 120px;
+    width: 50%;
+    margin: 90px auto;
+
+  }
+
+  #devTitre{
+    font-size: 0.9em;
+    padding-top: 5px;
+  }
+
+  /* KEYFRAMES COLORS HEADER and NEON */
   
   header {
     text-align: center;
     font-size: 5em;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 50px 0;
   }
   
   a {
@@ -36,50 +54,46 @@
   }
     
   header:nth-child(1) a {
-    color: rgb(12, 118, 231);
+    color: #0c08fc7e;
     font-family: "Press Start 2P";
     font-size: 0.8em;
     transition: 0.2s;
   }
     
-  header:nth-child(1) a:hover {
-    -webkit-animation: neon4 1.2s ease-in-out infinite alternate;
-    -moz-animation: neon4 1.2s ease-in-out infinite alternate;
-    animation: neon4 1.2s ease-in-out infinite alternate;
+  header:nth-child(1) a{
+    -webkit-animation: neon1 1.2s ease-in-out infinite alternate;
+    -moz-animation: neon1 1.2s ease-in-out infinite alternate;
+    animation: neon1 1.2s ease-in-out infinite alternate;
   }
     
-  header a:hover {
-    color: #ffffff;
-  }
-
-  @-webkit-keyframes neon4 {
+  @-webkit-keyframes neon1 {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+      text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 7px #228DFF, 0 0 8px #228DFF, 0 0 5px #228DFF, 0 0 15px #228DFF;
       }
       to {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 50px #228DFF, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 7px #228DFF;
     }
   }    
     
-  @-moz-keyframes neon4 {
+  @-moz-keyframes neon1 {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+      text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 7px #228DFF, 0 0 8px #228DFF, 0 0 5px #228DFF, 0 0 15px #228DFF;
       }
       to {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 50px #228DFF, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 7px #228DFF;
     }
       
   }
-  @keyframes neon4 {
+  @keyframes neon1 {
     from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+      text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #228DFF, 0 0 7px #228DFF, 0 0 8px #228DFF, 0 0 5px #228DFF, 0 0 15px #228DFF;
       }
       to {
-      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #228DFF, 0 0 50px #228DFF, 0 0 4px #228DFF, 0 0 5px #228DFF, 0 0 7px #228DFF;
     }
   }
   
-  /* HOVER */
+  /* RESPONSIVE HEADER */
     
   @media (max-width: 650px) {
     #container {
@@ -90,30 +104,7 @@
     }
   }
 
-  /* DIV CONTENT */
-
-  .content {
-    box-shadow: 0 3px 5px 0 rgb(148, 111, 61),0 2px 10px 0 rgb(148, 111, 61);
-    background-color: rgba(34, 141, 255, 0.315);
-    padding: 35px;
-    text-align: center;
-    border-radius: 120px;
-    width: 50%;
-    margin: auto;
-
-  }
-
-  #devTitre{
-    font-size: 0.9em;
-    padding-top: 5px;
-  }
- 
-
-  /* GLOW FOR PLAY AND DEV */
-
-  h1{
- 
-  }
+  /* KEYFRAMES COLORS DEV and NEON  */
   
   h1:nth-child(1) a {
     color: #FF9900;
@@ -128,21 +119,21 @@
   }
 
   h1:nth-child(1) a:hover {
-    -webkit-animation: neon5 1.2s ease-in-out infinite alternate;
-    -moz-animation: neon5 1.2s ease-in-out infinite alternate;
-    animation: neon5 1.2s ease-in-out infinite alternate;
+    -webkit-animation: neon2 1.2s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.2s ease-in-out infinite alternate;
+    animation: neon2 1.2s ease-in-out infinite alternate;
   }
   
   h1:nth-child(2) a:hover {
-    -webkit-animation: neon5 1.2s ease-in-out infinite alternate;
-    -moz-animation: neon5 1.2s ease-in-out infinite alternate;
-    animation: neon5 1.2s ease-in-out infinite alternate;
+    -webkit-animation: neon2 1.2s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.2s ease-in-out infinite alternate;
+    animation: neon2 1.2s ease-in-out infinite alternate;
   }
 
   h1 a:hover {
     color: #ffffff;
   }
-  @-webkit-keyframes neon5 {
+  @-webkit-keyframes neon2 {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(26, 187, 5), 0 0 70px rgb(26, 187, 5), 0 0 80px rgb(26, 187, 5), 0 0 100px rgb(26, 187, 5), 0 0 150px rgb(26, 187, 5);
       }
@@ -151,7 +142,7 @@
     }
   }    
     
-  @-moz-keyframes neon5 {
+  @-moz-keyframes neon2 {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(26, 187, 5), 0 0 70px rgb(26, 187, 5), 0 0 80px rgb(26, 187, 5), 0 0 100px rgb(26, 187, 5), 0 0 150px rgb(26, 187, 5);
       }
@@ -160,7 +151,7 @@
     }
       
   }
-  @keyframes neon5 {
+  @keyframes neon2 {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px rgb(26, 187, 5), 0 0 70px rgb(26, 187, 5), 0 0 80px rgb(26, 187, 5), 0 0 100px rgb(26, 187, 5), 0 0 150px rgb(26, 187, 5);
       }
@@ -169,7 +160,7 @@
     }
   }
   
-  /* HOVER */
+  /* RESPONSIVE NAMES */
     
   @media (max-width: 650px) {
     h1 {

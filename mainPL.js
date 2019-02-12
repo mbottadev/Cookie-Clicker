@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    /* OBJET du JEU et VARIABLES */
+    /* OBJECT of GAME and VALUES */
     
     let Game = {
         score: document.getElementById("score"),
@@ -25,7 +25,7 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 2000000,
+        scoreJs: 0,
         scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
@@ -42,15 +42,17 @@ window.onload = () => {
         store:[
             {
                 id: 0,
+                name: 'GigaDict',
                 multiplicateur: 20,
                 times: 0,
                 useTimes: 0,
                 available: false,
-                useAvailable: false
+                useAvailable: false,
+                valeurTemps: 'READY ',
             },
             {
                 id:1,
-                name: 'boost',
+                name: 'Boost',
                 timer: 0,
                 price: 500,
                 available: false,
@@ -59,7 +61,7 @@ window.onload = () => {
             },
             {
                 id:2,
-                name: 'cookieRdm',
+                name: 'CookieRdm',
                 multiplicateur: 50,
                 timePrice: 25,
                 times: 0,
@@ -71,33 +73,9 @@ window.onload = () => {
         ],
     }
 
-    /* Affiche les BOUTONS accessibles */ 
-
-    setInterval(function(){
-        if(Game.scoreJs >= Game.B2Js) {
-            Game.buttons[1].style.opacity = 1;
-        }else{
-            Game.buttons[1].style.opacity = 0.3;
-        }
-        if(Game.scoreJs >= Game.B1Js) {
-            Game.buttons[0].style.opacity = 1;
-        }else{
-            Game.buttons[0].style.opacity = 0.3;
-        }
-        if(Game.scoreJs >= Game.store[1].price || Game.store[1].available == true) {
-            Game.buttons[2].style.opacity = 1;
-        }else{
-            Game.buttons[2].style.opacity = 0.3;
-        }
-        if(Game.store[0].times > 179) {
-            Game.buttons[3].style.opacity = 1;
-        }else{
-            Game.buttons[3].style.opacity = 0.3;
-        }
-    },100)
-
-    /* Fonction et CLICK pour COOKIE */
-   
+    
+    /* FUNCTION and CLICK for COOKIE */
+    
     cookie.addEventListener("click", function(e){        
         if(Game.store[0].available == true && Game.store[1].available === false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
@@ -124,8 +102,33 @@ window.onload = () => {
             afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
         }    
     })
-
-    /* Fonction pour l'affichage du CLICK +1 */
+    
+    /* SET.INTERVAL DISPLAYING BUTTONS AVAILABLE */ 
+    
+    setInterval(function(){
+        if(Game.scoreJs >= Game.B2Js) {
+            Game.buttons[1].style.opacity = 1;
+        }else{
+            Game.buttons[1].style.opacity = 0.3;
+        }
+        if(Game.scoreJs >= Game.B1Js) {
+            Game.buttons[0].style.opacity = 1;
+        }else{
+            Game.buttons[0].style.opacity = 0.3;
+        }
+        if(Game.scoreJs >= Game.store[1].price || Game.store[1].available == true) {
+            Game.buttons[2].style.opacity = 1;
+        }else{
+            Game.buttons[2].style.opacity = 0.3;
+        }
+        if(Game.store[0].times > 179) {
+            Game.buttons[3].style.opacity = 1;
+        }else{
+            Game.buttons[3].style.opacity = 0.3;
+        }
+    },100)
+    
+    /* FUNCTION DISPLAY CLICK "+1" */
 
     function afficheScoreOnClick(e, score){
         const times = Date.now();
@@ -142,7 +145,7 @@ window.onload = () => {
         }, 900)
     }
     
-    /* Cookie par SECONDE */
+    /* FUNCTION COOKIE PER SECOND */
 
     function affichCPS(){
         Game.cookieParSec = Game.x * Game.autoIncr
@@ -150,13 +153,13 @@ window.onload = () => {
     }
     displayAutruche(Game.cps, " Bert / S ")
 
-    /* SetInterval pour Afficher le SCORE */
+    /* SET.INTERVAL for DISPLAYING SCORE */
 
     setInterval (function(){
         displayAutruche(Game.score, Game.scoreJs , "aa")
     },100);    
 
-    /* Fonction et Click pour MULTIPLICATEUR */
+    /* FUNCTION and CLICK for MULTIPLICATEUR */
 
     function executeB1(){
         if (Game.onMultiplCl === true){
@@ -166,7 +169,7 @@ window.onload = () => {
 
     function pricePlusMulti(){
         if (Game.onMultiplCl === true){
-            Game.B1Js = Math.ceil(Game.B1Js * 1.7);
+            Game.B1Js = Math.ceil(Game.B1Js * 1.2);
         }
     };
     
@@ -182,13 +185,12 @@ window.onload = () => {
             displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], '#FF9900');
             colorText(Game.buttons[0], Game.B1Js, Game.checks[0], 'white');
         }
-        displayScore(Game.score, Game.scoreJs)
         displayAutruche(Game.buttons[0], Game.B1Js);
         affichMultiplicateur();
         Game.checks[0].style.fontWeight = 'bold';
     });
     
-    /* Fonction et Click pour AUTOCLICK */
+    /* FUNCTION and CLICK for AUTOCLICK */
 
     Game.buttons[1].addEventListener( "click", function (){
         if (Game.possAutocl == true){
@@ -197,7 +199,7 @@ window.onload = () => {
                 Game.possAutocl = true
                 Game.scoreJs = Game.scoreJs - Game.B2Js
                 Game.autoIncr++
-                Game.B2Js = Game.B2Js*2
+                Game.B2Js = Game.B2Js*1.5
                 affichCPS()
                 displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], '#FF9900'); 
                 colorText(Game.buttons[1], Game.B2Js, Game.checks[1], 'white');
@@ -217,9 +219,9 @@ window.onload = () => {
             displayAutruche(Game.checks[1], Game.autoIncr)
             Game.checks[1].style.fontWeight = 'bold';
         }    
-    },500);
+    },1000);
 
-    /* Fonction et Click pour BOOST */
+    /* FUNCTION and CLICK for BOOST */
 
     displayAutruche(Game.buttons[2], "500")
     Game.buttons[2].addEventListener("click",function(){
@@ -250,11 +252,11 @@ window.onload = () => {
         }       
     },1000)
 
-    /* Fonction et Click pour GIGADICT */
+    /* FUNCTION and CLICK for GIGADICT */
 
     displayAutruche(Game.buttons[3], "FREE")
     Game.buttons[3].addEventListener("click", function(){
-        if(Game.store[0].times > 179){    
+        if(Game.store[0].times > 179){
             Game.store[0].available = true;
             Game.store[0].times = 0;  
         }
@@ -262,15 +264,16 @@ window.onload = () => {
     
     setInterval (function(){
         Game.store[0].times++;
-        console.log(Game.store[0].times)
+        displayAutruche(Game.checks[3], Game.store[0].times + " /180 s")  
+        Game.checks[3].style.color='white'  
         if(Game.store[0].times > 179) {
-            console.log("prêt")
+            displayAutruche(Game.checks[3], Game.store[0].valeurTemps);
         }
         if(Game.store[0].available == true) {
             Game.store[0].times = 0;
             Game.store[0].useTimes++;
             Game.checks[3].style.backgroundColor='#FF9900'
-            Game.checks[2].style.color='white'
+            Game.checks[3].style.color='white'
             displayAutruche(Game.checks[3], "x" + Game.store[0].multiplicateur)
         }
         if(Game.store[0].useTimes > 9) {
@@ -281,7 +284,7 @@ window.onload = () => {
         }
     },1000);
 
-    /* Fonction et Click pour RANDOM COOKIE */
+    /* FUNCTION and CLICK for RANDOM COOKIE */
 
     Game.cookieRdm.addEventListener("click", function(){
         if(Game.store[2].nbrRdm == 1) {
@@ -336,17 +339,13 @@ window.onload = () => {
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    /* Changements couleurs CHEKS.B */
+    /* FUNCTIONS CHANGING CHEKS.B'S COLORS */
 
     function displayButton(button, price, selector, color){
         button.innerText = price
         if(selector){
             selector.style.backgroundColor=color;
         }
-    }
-    
-    function displayScore(selector, score){
-        displayAutruche(selector, score)
     }
     
     function initalise(){
@@ -362,7 +361,7 @@ window.onload = () => {
         }
     }
 
-    /* Affichage des X dans les CHECKS.B */
+    /* FUNCTIONS DISPLAY X INTO CHECKS.B */
 
     function affichMultiplicateur(){
         if (Game.xVisu === true){
@@ -382,16 +381,15 @@ window.onload = () => {
     }
 
     function formatK(number){
+        
         if (number > 999999){
             return (number / 1000000).toFixed(3) + 'M'
-        }
-        else if (number > 999){
+        }else if (number > 999){
             return (number / 1000).toFixed(2) + 'K'
-        } 
-        else { return number}
+        }else{ return number}
     }
 
-    /* Hover BONUS button */
+    /* HOVER BONUS BUTTON */
 
     Game.buttons[0].addEventListener("mouseenter", function(instruBonus1){
         Game.instruBonus1.style.opacity = 1;     
@@ -420,5 +418,23 @@ window.onload = () => {
     Game.buttons[3].addEventListener("mouseleave", function(instruBonus4){
         Game.instruBonus4.style.opacity = ""; 
     })
+
+
+    /* BUTTON for LEAVING */
+
+    window.onbeforeunload = function(event) {
+        let message = "Are you sure";
+        if (window.event) {
+          console.log(window.event);
+          console.log(event.currentTarget.performance);
+          console.log(event.currentTarget.performance.navigation);
+          console.log(event.currentTarget.performance.navigation.type);
+        } 
+      
+        event = event || window.event;
+        event.preventDefault = true;
+        event.cancelBubble = true;
+        event.returnValue = message;
+    }
 
 }
