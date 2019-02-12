@@ -8,6 +8,9 @@ body {
   padding: 15px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+#acceuil {
+  overflow: hidden;
+}
 #imgCookie 
 {
   width: 100px;
