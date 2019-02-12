@@ -65,7 +65,7 @@ body {
 
 .score {
   height: 10%;
-  width: 50%;
+  width: 40%;
   margin: auto; 
   padding: 2%;  
   font-size: 1em;
@@ -78,7 +78,7 @@ body {
 }
 
 .click {
-  width: 35%;
+  width: 50%;
 }
 
 .click:active {
@@ -93,7 +93,7 @@ height:280px;
 .total {
   height: auto; 
   margin: auto;
-  width: 30%;
+  width: 40%;
   font-size: 1em;
 }
    
