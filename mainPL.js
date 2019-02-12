@@ -25,7 +25,7 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 500000,
+        scoreJs: 200000,
         scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
@@ -146,9 +146,9 @@ window.onload = () => {
 
     function affichCPS(){
         Game.cookieParSec = Game.x * Game.autoIncr
-        Game.cps.innerHTML = Game.cookieParSec + " Bert / par S "
+        Game.cps.innerHTML = Game.cookieParSec + " Bert / S "
     }
-    Game.cps.innerHTML =  "   Bert / par S "
+    Game.cps.innerHTML =  " Bert / S "
 
     /* SetInterval pour Afficher le SCORE */
 
@@ -207,6 +207,8 @@ window.onload = () => {
     setInterval (function(){
         if (Game.onAutoclick == true){
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
+            Game.scoreTotal = Game.scoreTotal + Game.autoIncr * Game.incrementeur * Game.multiplicateur
+            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
             Game.score.innerHTML = Game.scoreJs + " Berts";
             Game.checks[1].innerHTML = Game.autoIncr
             Game.checks[1].style.fontWeight = 'bold';
