@@ -63,19 +63,18 @@ body {
 }
 
 .score {
-  height: auto;
-  margin: auto;
-  width: 25%;
-  padding: 2%;
-  font-size: 1em;
-}
-
-.cps {
   height: 10%;
   width: 50%;
   margin: auto; 
   padding: 2%;  
-  font-size: 1em; 
+  font-size: 1em;
+}
+
+.cps {
+  height: auto;
+  margin: auto;
+  width: 25%;
+  padding: 2%;
 }
 
 .click {
