@@ -169,7 +169,7 @@ window.onload = () => {
             Game.B1Js = Math.ceil(Game.B1Js * 1.7);
         }
     };
-
+    
     Game.buttons[0].addEventListener("click", function(){
         if (Game.scoreJs >= Game.B1Js){
             Game.onMultiplCl = true;
@@ -183,6 +183,7 @@ window.onload = () => {
             colorText(Game.buttons[0], Game.B1Js, Game.checks[0], 'white');
         }
         displayScore(Game.score, Game.scoreJs)
+        displayAutruche(Game.buttons[0], Game.B1Js);
         affichMultiplicateur();
         Game.checks[0].style.fontWeight = 'bold';
     });
@@ -203,6 +204,7 @@ window.onload = () => {
             }       
         }
         displayAutruche(Game.score, Game.scoreJs, " Berts");
+        displayAutruche(Game.buttons[1], Game.B2Js);
     });
    
 
@@ -246,7 +248,7 @@ window.onload = () => {
             displayAutruche(Game.buttons[2], Game.store[1].price)
             Game.store[1].available = false
         }       
-    },500)
+    },1000)
 
     /* Fonction et Click pour GIGADICT */
 
@@ -344,7 +346,7 @@ window.onload = () => {
     }
     
     function displayScore(selector, score){
-        displayAutruche(selector, score, " Berts")
+        displayAutruche(selector, score + " Berts")   
     }
     
     function initalise(){
@@ -365,11 +367,26 @@ window.onload = () => {
     function affichMultiplicateur(){
         if (Game.xVisu === true){
             displayAutruche(Game.checks[0], "x" + Game.x)
+            
         }
     }
 
     function displayAutruche(selector, value){
-        selector.innerText = value
+        if(!isNaN(value)){
+            selector.innerText = formatK(value);
+        }else{
+            selector.innerText = value
+        }
+    }
+
+    function formatK(number){
+        if (number > 999){
+            return (number / 1000).toFixed(2) + 'K'
+        } 
+        else if (number > 999999){
+            return (number / 1000000).toFixed(3) + 'M'
+        }
+        else { return number}
     }
 
     /* Hover BONUS button */
