@@ -101,26 +101,26 @@ window.onload = () => {
     cookie.addEventListener("click", function(e){
         if(Game.store[0].available == true && Game.store[1].available === false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            Game.score.innerHTML = Game.scoreJs + " Berts"
+            displayAutruche(Game.score, Game.scoreJs, " Berts" );
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
+            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur))) 
         }else if(Game.store[1].available === true && Game.store[0].available == false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            Game.score.innerHTML = Game.scoreJs + " Berts"
+            displayAutruche(Game.score, Game.scoreJs, " Berts")
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
+            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus)))
         }else if(Game.store[1].available === true && Game.store[0].available == true){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
-            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
+            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus))) 
         }else{
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-            Game.score.innerHTML = Game.scoreJs + " Berts" 
+            displayAutruche(Game.score, Game.scoreJs, " Berts") 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
-            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
+            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
             afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
         }    
     })
@@ -146,15 +146,15 @@ window.onload = () => {
 
     function affichCPS(){
         Game.cookieParSec = Game.x * Game.autoIncr
-        Game.cps.innerHTML = Game.cookieParSec + " Bert / S "
+        displayAutruche(Game.cps, Game.cookieParSec + " Bert / S ")
     }
-    Game.cps.innerHTML =  " Bert / S "
+    displayAutruche(Game.cps, " Bert / S ")
 
     /* SetInterval pour Afficher le SCORE */
 
     setInterval (function(){
-        Game.score.innerHTML = Game.scoreJs + " Berts"
-    },0100);    
+        displayAutruche(Game.score, Game.scoreJs, " Berts")
+    },100);    
 
     /* Fonction et Click pour MULTIPLICATEUR */
 
@@ -180,6 +180,7 @@ window.onload = () => {
             executeB1();
             pricePlusMulti();
             displayButton(Game.buttons[0], Game.B1Js, Game.checks[0], '#FF9900');
+            colorText(Game.buttons[0], Game.B1Js, Game.checks[0], 'white');
         }
         displayScore(Game.score, Game.scoreJs)
         affichMultiplicateur();
@@ -197,10 +198,11 @@ window.onload = () => {
                 Game.autoIncr++
                 Game.B2Js = Game.B2Js*2
                 affichCPS()
-                displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], '#FF9900') 
+                displayButton(Game.buttons[1], Game.B2Js, Game.checks[1], '#FF9900'); 
+                colorText(Game.buttons[1], Game.B2Js, Game.checks[1], 'white');
             }       
         }
-        Game.score.innerHTML = Game.scoreJs + " Berts";
+        displayAutruche(Game.score, Game.scoreJs, " Berts");
     });
    
 
@@ -208,20 +210,20 @@ window.onload = () => {
         if (Game.onAutoclick == true){
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
             Game.scoreTotal = Game.scoreTotal + Game.autoIncr * Game.incrementeur * Game.multiplicateur
-            Game.total.innerHTML = "Total de Berts : "+Game.scoreTotal
-            Game.score.innerHTML = Game.scoreJs + " Berts";
-            Game.checks[1].innerHTML = Game.autoIncr
+            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
+            displayAutruche(Game.score, Game.scoreJs, " Berts");
+            displayAutruche(Game.checks[1], Game.autoIncr)
             Game.checks[1].style.fontWeight = 'bold';
         }    
     },1000);
 
     /* Fonction et Click pour BOOST */
 
-    Game.buttons[2].innerHTML ="500"
+    displayAutruche(Game.buttons[2], "500")
     Game.buttons[2].addEventListener("click",function(){
         if (Game.scoreJs>Game.store[1].price){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
-            Game.score.innerHTML = Game.scoreJs + " Berts"
+            displayAutruche(Game.score, Game.scoreJs, " Berts")
             Game.store[1].available = true
         }
     })   
@@ -230,23 +232,25 @@ window.onload = () => {
         if (Game.store[1].available == true) {
             Game.store[1].timer++
             Game.checks[2].style.backgroundColor='#FF9900'
-            Game.checks[2].innerHTML = "x" + Game.store[1].bonus
-            Game.buttons[2].innerHTML = ":" + Game.store[1].timerinverse
+            Game.checks[2].style.color='white'
+            displayAutruche(Game.checks[2], "x" +  Game.store[1].bonus)
+            displayAutruche(Game.buttons[2], Game.store[1].timerinverse + " s")
             Game.store[1].timerinverse-- 
         }
         if(Game.store[1].timer > 29){
             Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
             Game.store[1].timerinverse = 30
             Game.checks[2].style.backgroundColor=''
+            Game.checks[2].style.color=''
             Game.store[1].timer = 0
-            Game.buttons[2].innerHTML =  Game.store[1].price
+            displayAutruche(Game.buttons[2], Game.store[1].price)
             Game.store[1].available = false
         }       
     },1000)
 
     /* Fonction et Click pour GIGADICT */
 
-    Game.buttons[3].innerHTML ="FREE"
+    displayAutruche(Game.buttons[3], "FREE")
     Game.buttons[3].addEventListener("click", function(){
         if(Game.store[0].times > 179){    
             Game.store[0].available = true;
@@ -264,12 +268,14 @@ window.onload = () => {
             Game.store[0].times = 0;
             Game.store[0].useTimes++;
             Game.checks[3].style.backgroundColor='#FF9900'
-            Game.checks[3].innerHTML = "x" + Game.store[0].multiplicateur
+            Game.checks[2].style.color='white'
+            displayAutruche(Game.checks[3], "x", Game.store[0].multiplicateur)
         }
         if(Game.store[0].useTimes > 9) {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
             Game.checks[3].style.backgroundColor=''
+            Game.checks[2].style.color=''
         }
     },1000);
 
@@ -296,8 +302,8 @@ window.onload = () => {
             }
         }
         
-        Game.score.innerHTML = Game.scoreJs + " Berts";
-        Game.cookieRdm.innerHTML = '';
+        displayAutruche(Game.score, Game.scoreJs, " Berts");
+        displayAutruche(Game.cookieRdm, '');
         Game.store[2].times = 0;
     })
 
@@ -316,7 +322,7 @@ window.onload = () => {
             }           
             Game.store[2].times = 0; 
             setTimeout(()=>{
-                Game.cookieRdm.innerHTML = '';
+                displayAutruche(Game.cookieRdm, '');
             },1500)
         }
         
@@ -338,7 +344,7 @@ window.onload = () => {
     }
     
     function displayScore(selector, score){
-        selector.innerHTML = score + " Berts"
+        displayAutruche(selector, score, " Berts")
     }
     
     function initalise(){
@@ -347,12 +353,23 @@ window.onload = () => {
     }
     initalise()
 
+    function colorText(button, price, selector, color){
+        button.innerText = price 
+        if(selector){
+            selector.style.color=color; 
+        }
+    }
+
     /* Affichage des X dans les CHECKS.B */
 
     function affichMultiplicateur(){
         if (Game.xVisu === true){
-            Game.checks[0].innerHTML = "x" + Game.x
+            displayAutruche(Game.checks[0], "x" + Game.x)
         }
+    }
+
+    function displayAutruche(selector, value){
+        selector.innerText = value
     }
 
     /* Hover BONUS button */
