@@ -9,38 +9,50 @@
     <script type="text/javascript" src="mainPL.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
-<body>
-    <header><a href="https://en.wikipedia.org/wiki/Green">
-        BERT/CLICKER
+    <body>
+        <header><a href="https://en.wikipedia.org/wiki/Green">
+            BERT/CLICKER
         </a></header>
-    <div class="instructionsBonus"></div>
-    <div class="instru" id="instructionsBonus1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis voluptatum maiores beatae atque officia eaque amet dolores, fugit velit fuga. Nemo omnis modi maxime consequuntur cum repudiandae maiores eaque tenetur?</div>
-    <div class="instru" id="instructionsBonus2">bonus 2</div>
-    <div class="instru" id="instructionsBonus3">bonus 3</div>
-    <div class="instru" id="instructionsBonus4">bonus 4</div>
-    <div id="cookieRdm"></div>
-    <div class="content">
-        <div class="item bonus">
-            <div id="B1">0</div>Multiplicateur
-            <div id="B2">0</div>AutoClick
-            <div id="B3">0</div>Boost
-            <div id="B4">0</div>Giga
+        <div class="instructionsBonus"></div>
+        <div class="instru" id="instructionsBonus1">
+            <p class="titreBonus">Multiplicateur:</p>
+            Tu aimerais avoir plus de <b>Berts</b>? Tu trouve que un click n'est pas assez? Utilise le Multiplicateur pour multpilier ta production de <b>Berts</b> par click! C'est magique!
         </div>
-        <div id="afficheScoreOnClick"></div>
-        <div class="imageCps">
-            <div class="item cps" id="cps"></div>
-           <div class="centre">
-            <div class="item score" id="score"></div>
-            <img class="item click" id="cookie" src="svgbertrand.svg" />
-            <div class=" item total" id="total">TOTAL</div>
-           </div>
+        <div class="instru" id="instructionsBonus2">
+            <p class="titreBonus">AutoClick:</p> 
+            Autoclick un <b>Bert</b> chaque seconde juste pour toi! Tu peux même en prendre plusieurs pour avoir plus de <b>Berts</b> à chaque seconde qui passe!
         </div>
-            <div class="item check">
-                <div id="checkB1"></div>
-                <div id="checkB2"></div>
-                <div id="checkB3"></div>
-                <div id="checkB4"></div>
+        <div class="instru" id="instructionsBonus3">
+            <p class="titreBonus">Boost:</p>
+            Tu veux booster ta production de <b>Berts</b>?? Le Boost va t'aider en multipliant la valeur de tes clicks et de ton Multiplicateur! <b>Woohooo!</b>
+        </div>
+        <div class="instru" id="instructionsBonus4">
+            <p class="titreBonus">GigaDict:</p>
+            Toujours plus?! Gratuit, le GigaDict prend <em>3 minutes</em> à se recharger et puis va multiplier par <b>20</b> la valeur de tes clicks, ton Multiplicateur et ton Boost!! De quoi te rendre addict aux <b>BERTS!</b> 
+        </div>
+        <div id="cookieRdm"></div>
+        <div class="content">
+            <div class="item bonus">
+                <div class="coulorBonus" id="B1">0</div>Multiplicateur
+                <div class="coulorBonus" id="B2">0</div>AutoClick
+                <div class="coulorBonus" id="B3">0</div>Boost
+                <div class="coulorBonus" id="B4">0</div>Giga
             </div>
+            <div id="afficheScoreOnClick"></div>
+            <div class="imageCps">
+                <div class="item cps" id="cps"></div>
+                <div class="centre">
+                    <div class="item score" id="score"></div>
+                    <img class="item click" id="cookie" src="svgbertrand.svg" />
+                    <div class=" item total" id="total">TOTAL</div>
+                </div>
+            </div>
+                <div class="item check">
+                    <div id="checkB1"></div>
+                    <div id="checkB2"></div>
+                    <div id="checkB3"></div>
+                    <div id="checkB4"></div>
+                </div>
         </div> 
     </body>    
 </html>
