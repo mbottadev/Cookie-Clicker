@@ -225,6 +225,14 @@ height:280px;
   padding: 5px;
   pointer-events: none;
 }
+@media screen and (max-width: 1200px) {
+  .instru {
+      top: 75%;
+      width: 50%;
+      left: 25%;
+      height: auto;
+  }
+}
 
 p {
   font-size: 1.1em;
