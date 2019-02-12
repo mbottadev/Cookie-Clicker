@@ -146,9 +146,9 @@ window.onload = () => {
 
     function affichCPS(){
         Game.cookieParSec = Game.x * Game.autoIncr
-        Game.cps.innerHTML = Game.cookieParSec + " Bert / par S "
+        Game.cps.innerHTML = Game.cookieParSec + " Bert / S "
     }
-    Game.cps.innerHTML =  "   Bert / par S "
+    Game.cps.innerHTML =  " Bert / S "
 
     /* SetInterval pour Afficher le SCORE */
 
