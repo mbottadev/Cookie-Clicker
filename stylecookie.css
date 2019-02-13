@@ -16,6 +16,7 @@ html{
   border-style: dashed ;
   height: 100vh;
   box-sizing: border-box;
+  width: 100%;
 }
 
 body {
@@ -571,12 +572,12 @@ header a:hover {
 
 /* FOOTER CSS */
 
-footer {
+#linkForHome {
   text-align: center;
   margin: 2%;
 }
 
-footer a{
+#linkForHome a{
   color: rgb(12, 118, 231);
   box-shadow: 0.5px 0.5px 0.5px 1px orange;
   padding: 1%;
@@ -584,7 +585,7 @@ footer a{
   display: inline-flex;
 }
 
-footer a:hover{
+#linkForHome a:hover{
   color: rgb(255, 0, 0);
   box-shadow: 1px 1px 1px 1px red;
 }
@@ -595,6 +596,8 @@ footer a:hover{
   
   body{
     background: #412a30; 
+    width: 100%;
+    height: 1150px;
   }
   header:nth-child(1) a {
     color: rgb(185, 171, 189);
@@ -604,8 +607,7 @@ footer a:hover{
     .content{
     display: grid;
     height:100%;
-    margin: 20% auto;
-    margin-bottom: 0%;
+    margin: auto;
   }
     .item.bonus{
     width: 50%;
