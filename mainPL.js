@@ -131,10 +131,12 @@ window.onload = () => {
     /* FUNCTION DISPLAY CLICK "+1" */
 
     function afficheScoreOnClick(e, score){
+        const animation = ["top","bottom","left","right","topbis","bottombis","leftbis","rightbis"] ;
         const times = Date.now();
         var div = document.createElement('div');
         div.style.left = e.clientX + 'px';
         div.style.top = e.clientY + 'px';
+        div.style.animationName = animation[Math.floor(Math.random() * animation.length)];
         div.classList.add("afficheScoreOnClick");
         div.innerText = '+' + score;
         div.id = times;
