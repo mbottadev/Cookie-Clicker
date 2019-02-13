@@ -248,7 +248,7 @@ window.onload = () => {
             Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
             Game.store[1].timerinverse = 30
             Game.checks[2].style.backgroundColor=''
-            Game.checks[2].style.color='rgb(148, 111, 61)'
+            Game.checks[2].style.color='#5e595b'
             Game.store[1].timer = 0
             displayAutruche(Game.buttons[2], Game.store[1].price)
             Game.store[1].available = false
@@ -283,7 +283,7 @@ window.onload = () => {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
             Game.checks[3].style.backgroundColor=''
-            Game.checks[3].style.color='rgb(148, 111, 61)'
+            Game.checks[3].style.color='#5e595b'
         }
     },1000);
 
