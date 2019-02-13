@@ -48,7 +48,7 @@ Nous avons rencontré quelques difficultés lors de la création de se projet. P
 
 #### Le lien vers la page internet:
 
-https://pierre-louis242.github.io/starting-web-developpment/
+https://pierre-louis242.github.io/Cookie-Clicker/
 
 ## Progression 
 
