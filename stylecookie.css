@@ -15,8 +15,9 @@ html{
   border-color: #FF9900;
   border-width: 8px;
   border-style: dashed ;
+  height: 100vh;
+  box-sizing: border-box;
 }
-
 
 body {
   background: linear-gradient(#000, #383154);
@@ -545,7 +546,6 @@ header a:hover {
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
   }
-    
 }
   
 @keyframes neon2 {
@@ -554,17 +554,8 @@ header a:hover {
   }
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
-  }
-    
-}
-  
-/* RESPONSIVE BONUSES PRICES */
-  
-@media (max-width: 650px) {
-  .colorBonus {
-  font-size: 1.5em;
-  }
-}
+  } 
+} 
 
 /* FOOTER CSS */
 
@@ -587,6 +578,7 @@ footer a:hover{
 }
 
 /* Smartphones */
+
 @media only screen and (max-width : 525px){
   
   body{

@@ -11,6 +11,21 @@
     height: auto;
   }
   
+  img{
+    height: 150%;
+    width: 150%;
+  }
+
+  #imgYou{
+    height: 180%;
+    width: 180%;
+  }
+
+  #imgEli{
+    height: 125%;
+    width: 125%;
+  }
+
   /* DIV GO BACK */
   
   header {
@@ -47,7 +62,6 @@
   /* DIV EXPLAINING BONUSES */
 
 .namesDev {
-  border: 2px solid #FF9900;
   width: 160px;
   height: auto;
   opacity: 0;
