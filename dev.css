@@ -1,8 +1,10 @@
 *{
-  height: 100%;
   font-family: "Press Start 2P";
 }
 
+  html {
+    height: 100%;
+  }
   body {
     background: linear-gradient(#000, #383154);
     justify-content: center;
