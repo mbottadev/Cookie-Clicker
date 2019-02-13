@@ -11,6 +11,7 @@ window.onload = () => {
         instruBonus2: document.getElementById("instructionsBonus2"),
         instruBonus3: document.getElementById("instructionsBonus3"),
         instruBonus4: document.getElementById("instructionsBonus4"),
+        linkForHome: document.getElementById("linkForHome"),
         checks:[
             document.getElementById("checkB1"),
             document.getElementById("checkB2"),
@@ -79,26 +80,26 @@ window.onload = () => {
     cookie.addEventListener("click", function(e){        
         if(Game.store[0].available == true && Game.store[1].available === false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            displayAutruche(Game.score, Game.scoreJs, "aa");
+            displayAutruche(Game.score, Game.scoreJs, "scoore");
             Game.scoreTotal =  Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur);
-            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
+            displayAutruche(Game.total, Game.scoreTotal, "toot")
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur))) 
         }else if(Game.store[1].available === true && Game.store[0].available == false){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            displayAutruche(Game.score, Game.scoreJs, "aa")
+            displayAutruche(Game.score, Game.scoreJs, "scoore")
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus);
-            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
+            displayAutruche(Game.total, Game.scoreTotal, "toot")
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[1].bonus)))
         }else if(Game.store[1].available === true && Game.store[0].available == true){
             Game.scoreJs = Game.scoreJs + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * ( Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus )
-            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
+            displayAutruche(Game.total, Game.scoreTotal, "toot")
             afficheScoreOnClick(e, (Game.incrementeur * (Game.multiplicateur * Game.store[0].multiplicateur * Game.store[1].bonus))) 
         }else{
             Game.scoreJs = Game.scoreJs + Game.incrementeur * Game.multiplicateur
-            displayAutruche(Game.score, Game.scoreJs, "aa") 
+            displayAutruche(Game.score, Game.scoreJs, "scoore") 
             Game.scoreTotal = Game.scoreTotal + Game.incrementeur * Game.multiplicateur
-            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
+            displayAutruche(Game.total, Game.scoreTotal, "toot")
             afficheScoreOnClick(e, (Game.incrementeur * Game.multiplicateur))
         }    
     })
@@ -131,10 +132,12 @@ window.onload = () => {
     /* FUNCTION DISPLAY CLICK "+1" */
 
     function afficheScoreOnClick(e, score){
+        const animation = ["top","bottom","left","right","topbis","bottombis","leftbis","rightbis"] ;
         const times = Date.now();
         var div = document.createElement('div');
         div.style.left = e.clientX + 'px';
         div.style.top = e.clientY + 'px';
+        div.style.animationName = animation[Math.floor(Math.random() * animation.length)];
         div.classList.add("afficheScoreOnClick");
         div.innerText = '+' + score;
         div.id = times;
@@ -149,14 +152,14 @@ window.onload = () => {
 
     function affichCPS(){
         Game.cookieParSec = Game.x * Game.autoIncr
-        displayAutruche(Game.cps, Game.cookieParSec + " Bert / S ")
+        displayAutruche(Game.cps, Game.cookieParSec, " Bert / S ")
     }
     displayAutruche(Game.cps, " Bert / S ")
 
     /* SET.INTERVAL for DISPLAYING SCORE */
 
     setInterval (function(){
-        displayAutruche(Game.score, Game.scoreJs , "aa")
+        displayAutruche(Game.score, Game.scoreJs , "scoore")
     },100);    
 
     /* FUNCTION and CLICK for MULTIPLICATEUR */
@@ -205,7 +208,7 @@ window.onload = () => {
                 colorText(Game.buttons[1], Game.B2Js, Game.checks[1], 'white');
             }       
         }
-        displayAutruche(Game.score, Game.scoreJs , "aa");
+        displayAutruche(Game.score, Game.scoreJs , "scoore");
         displayAutruche(Game.buttons[1], Game.B2Js);
     });
    
@@ -214,8 +217,8 @@ window.onload = () => {
         if (Game.onAutoclick == true){
             Game.scoreJs = Game.scoreJs+ Game.autoIncr * Game.incrementeur * Game.multiplicateur
             Game.scoreTotal = Game.scoreTotal + Game.autoIncr * Game.incrementeur * Game.multiplicateur
-            displayAutruche(Game.total, "Total de Berts : " + Game.scoreTotal)
-            displayAutruche(Game.score, Game.scoreJs , "aa");
+            displayAutruche(Game.total, Game.scoreTotal, "toot")
+            displayAutruche(Game.score, Game.scoreJs , "scoore");
             displayAutruche(Game.checks[1], Game.autoIncr)
             Game.checks[1].style.fontWeight = 'bold';
         }    
@@ -227,7 +230,7 @@ window.onload = () => {
     Game.buttons[2].addEventListener("click",function(){
         if (Game.scoreJs>Game.store[1].price && Game.store[1].available == false){
             Game.scoreJs = Game.scoreJs - Game.store[1].price
-            displayAutruche(Game.score, Game.scoreJs , "aa")
+            displayAutruche(Game.score, Game.scoreJs , "scoore")
             Game.store[1].available = true
         }
     })   
@@ -245,7 +248,7 @@ window.onload = () => {
             Game.store[1].price = Math.ceil(Game.store[1].price*1.4)
             Game.store[1].timerinverse = 30
             Game.checks[2].style.backgroundColor=''
-            Game.checks[2].style.color='rgb(148, 111, 61)'
+            Game.checks[2].style.color='#5e595b'
             Game.store[1].timer = 0
             displayAutruche(Game.buttons[2], Game.store[1].price)
             Game.store[1].available = false
@@ -280,7 +283,7 @@ window.onload = () => {
             Game.store[0].useTimes = 0;
             Game.store[0].available = false;
             Game.checks[3].style.backgroundColor=''
-            Game.checks[3].style.color='rgb(148, 111, 61)'
+            Game.checks[3].style.color='#5e595b'
         }
     },1000);
 
@@ -307,7 +310,7 @@ window.onload = () => {
             }
         }
         
-        displayAutruche(Game.score, Game.scoreJs , "aa");
+        displayAutruche(Game.score, Game.scoreJs , "scoore");
         displayAutruche(Game.cookieRdm, '');
         Game.store[2].times = 0;
     })
@@ -370,8 +373,12 @@ window.onload = () => {
         }
     }
     function displayAutruche(selector, value, berts){
-        if(berts!=undefined && !isNaN(value)){
+        if(berts=="scoore" && !isNaN(value)){
             selector.innerText = formatK(value) + " Berts";
+        }else if(berts=="toot" && !isNaN(value)){
+            selector.innerText = "Total de Berts: " + formatK(value);
+        }else if(berts==" Bert / S " && !isNaN(value)){
+            selector.innerText = formatK(value) + " Bert / S";
         }else if(!isNaN(value)) {
             selector.innerText = formatK(value)
         }
@@ -418,23 +425,5 @@ window.onload = () => {
     Game.buttons[3].addEventListener("mouseleave", function(instruBonus4){
         Game.instruBonus4.style.opacity = ""; 
     })
-
-
-    /* BUTTON for LEAVING */
-
-    window.onbeforeunload = function(event) {
-        let message = "Are you sure";
-        if (window.event) {
-          console.log(window.event);
-          console.log(event.currentTarget.performance);
-          console.log(event.currentTarget.performance.navigation);
-          console.log(event.currentTarget.performance.navigation.type);
-        } 
-      
-        event = event || window.event;
-        event.preventDefault = true;
-        event.cancelBubble = true;
-        event.returnValue = message;
-    }
-
-}
+    
+}    
