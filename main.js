@@ -1,30 +1,48 @@
 window.onload = () => {
 
-let score = document.getElementById("score");
-let cps = document.getElementById("cps");
-let cookie = document.querySelector("#cookie");
-let checkB1 = document.getElementById("checkB1");
-let checkB2 = document.getElementById("checkB2");
-let checkB3 = document.getElementById("checkB3");
-let checkB4 = document.getElementById("checkB4");
-let B1 = document.getElementById("B1");
-let B2 = document.getElementById("B2");
-let B3 = document.getElementById("B3");
-let B4 = document.getElementById("B4");
-let total = document.getElementById("total");
+    let devNames = {
+        names: [
+            document.getElementById("elisaRenda"),
+            document.getElementById("younesAfkir"),
+            document.getElementById("maximeBotta"),
+            document.getElementById("pilouPicard"),
+        ],
+        divNames: [
+            document.getElementById("italienneElisa"),
+            document.getElementById("youKiller"),
+            document.getElementById("maxLaMenace"),
+            document.getElementById("pilou"),
+        ],
 
-let scoreJs = 0
-let B1Js = 1 
-let multiplicateur = 1
+    }
 
-cookie.addEventListener("click", function(){
-    scoreJs = scoreJs + multiplicateur 
-    score.innerHTML = "Le score est de \n " + scoreJs 
-    console.log(scoreJs);
-})
+     /* HOVER DEV NAMES BUTTON */
 
-// B1.addEventListener("click", function(){
+     devNames.divNames[0].addEventListener("mouseenter", function(instruBonus1){
+        devNames.names[0].style.opacity = 1;     
+    })
+    devNames.divNames[0].addEventListener("mouseleave", function(instruBonus1){
+        devNames.names[0].style.opacity = ""; 
+    })
 
-// })
+    devNames.divNames[1].addEventListener("mouseenter", function(instruBonus2){
+        devNames.names[1].style.opacity = 1;     
+    })
+    devNames.divNames[1].addEventListener("mouseleave", function(instruBonus2){
+        devNames.names[1].style.opacity = ""; 
+    })
 
+    devNames.divNames[2].addEventListener("mouseenter", function(instruBonus3){
+        devNames.names[2].style.opacity = 1;     
+    })
+    devNames.divNames[2].addEventListener("mouseleave", function(instruBonus3){
+        devNames.names[2].style.opacity = ""; 
+    })
+
+    devNames.divNames[3].addEventListener("mouseenter", function(instruBonus4){
+        devNames.names[3].style.opacity = 1;     
+    })
+    devNames.divNames[3].addEventListener("mouseleave", function(instruBonus4){
+        devNames.names[3].style.opacity = ""; 
+    })
 }
