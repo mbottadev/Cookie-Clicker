@@ -11,6 +11,7 @@ window.onload = () => {
         instruBonus2: document.getElementById("instructionsBonus2"),
         instruBonus3: document.getElementById("instructionsBonus3"),
         instruBonus4: document.getElementById("instructionsBonus4"),
+        linkForHome: document.getElementById("linkForHome"),
         checks:[
             document.getElementById("checkB1"),
             document.getElementById("checkB2"),
@@ -418,23 +419,5 @@ window.onload = () => {
     Game.buttons[3].addEventListener("mouseleave", function(instruBonus4){
         Game.instruBonus4.style.opacity = ""; 
     })
-
-
-    /* BUTTON for LEAVING */
-
-    window.onbeforeunload = function(event) {
-        let message = "Are you sure";
-        if (window.event) {
-          console.log(window.event);
-          console.log(event.currentTarget.performance);
-          console.log(event.currentTarget.performance.navigation);
-          console.log(event.currentTarget.performance.navigation.type);
-        } 
-      
-        event = event || window.event;
-        event.preventDefault = true;
-        event.cancelBubble = true;
-        event.returnValue = message;
-    }
-
-}
+    
+}    

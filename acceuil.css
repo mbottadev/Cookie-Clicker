@@ -5,6 +5,10 @@
   
   body {
     background: linear-gradient(#000, #383154);
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
     padding: 15px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -33,7 +37,6 @@
     border-radius: 120px;
     width: 50%;
     margin: 90px auto;
-
   }
 
   #devTitre{
@@ -46,7 +49,7 @@
   header {
     text-align: center;
     font-size: 5em;
-    margin: 20px 0 50px 0;
+    margin: 70px 0 50px 0;
   }
   
   a {
@@ -56,7 +59,7 @@
   header:nth-child(1) a {
     color: #0c08fc7e;
     font-family: "Press Start 2P";
-    font-size: 0.8em;
+    font-size: 1em;
     transition: 0.2s;
   }
     
@@ -105,6 +108,10 @@
   }
 
   /* KEYFRAMES COLORS DEV and NEON  */
+
+  h1{
+    height: auto;
+  }
   
   h1:nth-child(1) a {
     color: #FF9900;
