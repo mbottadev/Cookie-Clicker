@@ -44,6 +44,23 @@
     color: rgba(255, 255, 255, 0.815);
   }
   
+  /* DIV EXPLAINING BONUSES */
+
+.namesDev {
+  border: 2px solid #FF9900;
+  width: 160px;
+  height: auto;
+  opacity: 0;
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  color: white;
+  font-size: 0.6em;
+  padding: 5px;
+  pointer-events: none;
+}
+
+
   /* KEYFRAMES COLORS HEADER and NEON */
     
   header:nth-child(1) a {

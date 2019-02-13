@@ -80,10 +80,19 @@ body {
   font-size: 1em;
 }
 
+.score:hover {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
+}
+
 .cps {
   height: auto;
   margin: auto;
   width: 40%;
+  padding: 1%;
+}
+
+.cps:hover {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
 }
 
 .click {
@@ -98,13 +107,19 @@ img {
   width:280px;
   height:280px;
   cursor: pointer;
+  margin: 2%;
 }
 
 .total {
   height: auto; 
-  margin: auto;
+  margin: auto ;
   width: 40%;
   font-size: 1em;
+  padding: 1%;
+}
+
+.total:hover {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.15),0 2px 10px 0 rgba(0, 0, 0, 0.42);
 }
 
 .item {
