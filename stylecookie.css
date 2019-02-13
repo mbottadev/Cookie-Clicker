@@ -17,7 +17,11 @@ border-style: dashed ;
 
 html{
   height: 100%;
+  border-color: #FF9900;
+  border-width: 8px;
+  border-style: dashed ;
 }
+
 
 body {
   background: linear-gradient(#000, #383154);
