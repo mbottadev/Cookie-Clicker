@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie click</title>
     <link rel="stylesheet" type="text/css" href="stylecookie.css"> 
     <script type="text/javascript" src="mainPL.js"></script>
@@ -11,15 +11,10 @@
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet"> 
 </head>
     <body>
-        <header>
-            <a>
-                BERT/CLICKER
-            </a>
-        </header>
+        <div class="instructionsBonus"></div>
         <div class="instru" id="instructionsBonus1">
             <p class="titreBonus">Multiplicateur:</p>
-            <p>Tu aimerais avoir plus de <b>Berts</b>? Tu trouve que un click n'est pas assez? Utilise le Multiplicateur pour multpilier ta production de <b>Berts</b> par click! C'est magique!
-            </p>
+            <p>Tu aimerais avoir plus de <b>Berts</b>? Tu trouve que un click n'est pas assez? Utilise le Multiplicateur pour multpilier ta production de <b>Berts</b> par click! C'est magique!</p>
         </div>
         <div class="instru" id="instructionsBonus2">
             <p class="titreBonus">AutoClick:</p> 
@@ -28,32 +23,35 @@
         <div class="instru" id="instructionsBonus3">
             <p class="titreBonus">Boost:</p>
             <p>Tu veux booster ta production de <b>Berts</b>?? Le Boost va t'aider en multipliant la valeur de tes clicks et de ton Multiplicateur! <b>Woohooo!</b>
-            <br>        </br>
+            <br>        </b>
             <br>N'affecte pas l'Autoclick</br></p> 
         </div>
         <div class="instru" id="instructionsBonus4">
             <p class="titreBonus">GigaDict:</p>
-            <p>Toujours plus?! Gratuit et surpuissant, le GigaDict prend <em>3 minutes</em> à se recharger et puis va multiplier par <b>20</b> la valeur de tes clicks, ton Multiplicateur et ton Boost!! De quoi te rendre addict aux <b>BERTS!</b>
+            <p>Toujours plus?! Gratuit, le GigaDict prend <em>3 minutes</em> à se recharger et puis va multiplier par <b>20</b> la valeur de tes clicks, ton Multiplicateur et ton Boost!! De quoi te rendre addict aux <b>BERTS!</b>
             <br>        </b>
             <br>N'affecte pas l'Autoclick</br></p> 
         </div>
         <div id="cookieRdm"></div>
         <div class="content">
+                <header><a href="https://github.com/Pierre-louis242/Cookie-Clicker">
+                    BERT/CLICKER
+                </a></header>
             <div class="item bonus">
-                <div class="colorBonus" id="B1">0</div>Multiplicateur
-                <div class="colorBonus" id="B2">0</div>AutoClick
-                <div class="colorBonus" id="B3">0</div>Boost
-                <div class="colorBonus" id="B4">0</div>Giga
+                <div class="colorBonus" id="B1">0</div><div class="textbonus1">Multiplicateur</div>
+                <div class="colorBonus" id="B2">0</div><div class="textbonus2">AutoClick</div>
+                <div class="colorBonus" id="B3">0</div><div class="textbonus3">Bonus</div>
+                <div class="colorBonus" id="B4">0</div><div class="textbonus4">Giga</div>
             </div>
                 <div id="afficheScoreOnClick"></div>
                 <div class="imageCps">
-                    <div class="item score" id="score"></div>
-                    <div class="centre">
-                        <div class="item cps" id="cps"></div>
-                        <img class="item click" id="cookie" src="svgbertrand.svg" />
-                        <div class=" item total" id="total">TOTAL</div>
-                    </div>
+                <div class="item score" id="score"></div>
+                <div class="centre">
+                    <div class="item cps" id="cps"></div>
+                    <img class="item click" id="cookie" src="svgbertrand.svg" />
+                    <div class=" item total" id="total">TOTAL</div>
                 </div>
+            </div>
             <div class="item check">
                 <div id="checkB1"></div>
                 <div id="checkB2"></div>
