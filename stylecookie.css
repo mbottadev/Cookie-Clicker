@@ -8,7 +8,12 @@
          -moz-user-select: none; 
           -ms-user-select: none; 
               user-select: none; 
-  
+  margin: 0;
+}
+html{
+border-color: #FF9900;
+border-width: 8px;
+border-style: dashed ;
 }
 
 body {
@@ -19,6 +24,8 @@ body {
   height: auto;
   overflow: hidden;
   min-width: 900px;
+  /* height: 100vh; */
+  
 }
 
 /* CONTENT MAIN */
@@ -29,6 +36,16 @@ body {
 }
 
 #cookieRdm {
+  position: absolute;
+}
+
+#imgSouris {
+  width: 75px;
+  height: 75px;
+  background-color: orange;
+}
+
+#cadreSouris {
   position: absolute;
 }
 
@@ -543,7 +560,9 @@ header a:hover {
 
 footer {
   text-align: center;
-  margin-top: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 footer a{
