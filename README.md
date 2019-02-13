@@ -12,7 +12,7 @@ https://github.com/becodeorg/BXL-Lovelace-3.9/tree/master/projects/cookie-clicke
 
 #### Lien vers un Jeu de Cookie Clicker:
 
-
+http://orteil.dashnet.org/cookieclicker/
 
 ## Objectifs
 
