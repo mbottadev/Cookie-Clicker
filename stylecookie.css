@@ -1,23 +1,35 @@
 *{
   transition: 0.3s;
   font-family: "Press Start 2P";
-
-  
+    -webkit-touch-callout: none; 
+      -webkit-user-select: none; 
+       -khtml-user-select: none; 
+         -moz-user-select: none; 
+          -ms-user-select: none; 
+              user-select: none; 
+  /* margin: 0; */
 }
 
 html{
-  height: -webkit-fill-available;
+  border-color: #FF9900;
+  border-width: 8px;
+  border-style: dashed ;
+  height: 100vh;
+  box-sizing: border-box;
   width: 100%;
 }
 
 body {
   background: linear-gradient(#000, #383154);
-  background-size: auto;
+  background-size: 100vh;
   justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  height: 1080px;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  height: 100%;
   overflow: hidden;
-  min-width: 1000px;
+  min-width: 900px;
+  /* height: 100vh; */
+  height: 100vh;
+  height: 100%;  
 }
 
 /* CONTENT MAIN */
@@ -29,6 +41,16 @@ body {
 }
 
 #cookieRdm {
+  position: absolute;
+}
+
+#imgSouris {
+  width: 75px;
+  height: 75px;
+  background-color: orange;
+}
+
+#cadreSouris {
   position: absolute;
 }
 
@@ -537,7 +559,6 @@ header a:hover {
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
   }
-    
 }
   
 @keyframes neon2 {
@@ -546,17 +567,8 @@ header a:hover {
   }
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
-  }
-    
-}
-  
-/* RESPONSIVE BONUSES PRICES */
-  
-@media (max-width: 650px) {
-  .colorBonus {
-  font-size: 1.5em;
-  }
-}
+  } 
+} 
 
 /* FOOTER CSS */
 
@@ -579,6 +591,7 @@ header a:hover {
 }
 
 /* Smartphones */
+
 @media only screen and (max-width : 525px){
   
   body{

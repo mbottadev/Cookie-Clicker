@@ -7,6 +7,7 @@ window.onload = () => {
         cps: document.getElementById("cps"),
         cookie: document.querySelector("#cookie"),
         cookieRdm: document.getElementById("cookieRdm"),
+        cadreSouris: document.getElementById("cadreSouris"),
         instruBonus1: document.getElementById("instructionsBonus1"),
         instruBonus2: document.getElementById("instructionsBonus2"),
         instruBonus3: document.getElementById("instructionsBonus3"),
@@ -26,7 +27,7 @@ window.onload = () => {
         ],
 
         total: document.getElementById("total"),
-        scoreJs: 0,
+        scoreJs: 200000,
         scoreTotal: 0, 
         possAutocl:  true,
         onAutoclick: false,
@@ -210,8 +211,9 @@ window.onload = () => {
         }
         displayAutruche(Game.score, Game.scoreJs , "scoore");
         displayAutruche(Game.buttons[1], Game.B2Js);
+    
     });
-   
+
 
     setInterval (function(){
         if (Game.onAutoclick == true){
