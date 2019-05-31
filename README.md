@@ -50,6 +50,6 @@ Nous avons rencontré quelques difficultés lors de la création de se projet. P
 
 https://pierre-louis242.github.io/Cookie-Clicker/
 
-## Progression 
+## Progression  
 
 Le projet en lui même est terminé. 
